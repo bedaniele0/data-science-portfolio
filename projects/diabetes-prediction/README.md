@@ -1,40 +1,44 @@
-# <Project Title>
+# Clinical Diabetes Prediction Platform (E2E)
 
-**One-liner:** <Qué resuelve + para quién>  
-**Stack:** <Python, SQL, LightGBM, FastAPI, Streamlit, MLflow...>  
-**Deliverable:** <API / Dashboard / Pipeline>  
-**Results:** <Métrica principal + breve interpretación>
+**One-liner:** Plataforma end-to-end para predicción de diabetes con explicabilidad (SHAP) y consumo vía API + dashboard (si aplica).  
+**Stack:** Python, pandas, scikit-learn/LightGBM, SHAP, FastAPI, Streamlit (si aplica).  
+**Deliverable:** Pipeline reproducible + API + (dashboard) + explicabilidad.  
+**Results:** <completa: AUC/F1/Recall u otra métrica del proyecto>.
 
 ## Problem
-<2–4 líneas del problema y el contexto>
+Apoyar detección temprana estimando riesgo de diabetes a partir de variables clínicas. Importante: interpretar predicciones (explicabilidad) para confianza y adopción.
 
 ## Data
-- Source: <Kaggle / público / propio>
-- Size: <filas/columnas o periodo>
+- Source: <completa: público / Kaggle / otro>
+- Size: <completa: filas/columnas>
 
 ## Approach
-- <bullet 1>
-- <bullet 2>
-- <bullet 3>
+- Preparación de datos (missing, escalado/encoding si aplica).
+- Entrenamiento y evaluación con validación adecuada; selección por métricas (AUC/F1/Recall).
+- Explicabilidad con **SHAP** para entender drivers del riesgo.
+- Exposición vía API (y dashboard si aplica) para uso interactivo.
 
 ## Results
-- Metric(s): <AUC/F1/RMSE/MAPE...>
-- Key insight: <1–2 líneas>
+- Metric(s): <completa>
+- Key insight: SHAP permite explicar qué variables empujan el riesgo por paciente, facilitando revisión y confianza del modelo.
 
 ## Demo
-- <link o "local">
+- API: <link o "local">
+- Dashboard: <link o "local">
 
 ## How to run
 - Install:
   - `pip install -r requirements.txt`
 - Run (si aplica):
-  - `streamlit run app/app.py`
   - `uvicorn app.main:app --reload`
+  - `streamlit run app/app.py`
 
 ## Repo structure
-- <carpeta 1>
-- <carpeta 2>
+- `src/` lógica de datos/features/modelo
+- `app/` API y/o dashboard
+- `reports/` figuras y resultados
+- `tests/` pruebas (si aplica)
 
 ## Next steps
-- <mejora 1>
-- <mejora 2>
+- Calibración y análisis de umbrales (sensibilidad vs especificidad).
+- Evaluación de fairness (si hay variables sensibles) y validación temporal/geográfica si aplica.

@@ -1,40 +1,43 @@
-# <Project Title>
+# Telco Churn (IBM) + ROI Policy (E2E)
 
-**One-liner:** <Qué resuelve + para quién>  
-**Stack:** <Python, SQL, LightGBM, FastAPI, Streamlit, MLflow...>  
-**Deliverable:** <API / Dashboard / Pipeline>  
-**Results:** <Métrica principal + breve interpretación>
+**One-liner:** Predicción de churn en telecom con política de intervención basada en ROI para priorizar acciones de retención.  
+**Stack:** Python, pandas, scikit-learn/LightGBM, (FastAPI/Streamlit si aplica).  
+**Deliverable:** Modelo + evaluación + política de decisión (ROI) + (API/Dashboard si aplica).  
+**Results:** ROI ~4.56x (según evaluación del proyecto).
 
 ## Problem
-<2–4 líneas del problema y el contexto>
+Predecir churn y decidir a quién intervenir considerando costos de retención e impacto esperado. En churn, el modelo es solo una parte: la política de acción es lo que genera valor.
 
 ## Data
-- Source: <Kaggle / público / propio>
-- Size: <filas/columnas o periodo>
+- Source: IBM Telco Customer Churn (si aplica)
+- Size: <completa: filas/columnas>
 
 ## Approach
-- <bullet 1>
-- <bullet 2>
-- <bullet 3>
+- Preparación de datos (encoding, missing) y evaluación con métricas de clasificación.
+- Optimización de umbral / política de intervención basada en ROI (beneficio esperado vs costo).
+- (Opcional) Exposición mediante API y/o dashboard para scoring y análisis.
 
 ## Results
-- Metric(s): <AUC/F1/RMSE/MAPE...>
-- Key insight: <1–2 líneas>
+- Metric(s): <AUC/F1/Recall si aplica> + ROI ~4.56x
+- Key insight: Un enfoque ROI convierte probabilidades en decisiones, maximizando impacto y evitando gastar en clientes con bajo retorno.
 
 ## Demo
-- <link o "local">
+- API: <link o "local">
+- Dashboard: <link o "local">
 
 ## How to run
 - Install:
   - `pip install -r requirements.txt`
 - Run (si aplica):
-  - `streamlit run app/app.py`
   - `uvicorn app.main:app --reload`
+  - `streamlit run app/app.py`
 
 ## Repo structure
-- <carpeta 1>
-- <carpeta 2>
+- `src/` lógica de datos/features/modelo
+- `app/` API y/o dashboard
+- `reports/` figuras y resultados
+- `tests/` pruebas (si aplica)
 
 ## Next steps
-- <mejora 1>
-- <mejora 2>
+- Calibración de probabilidades y análisis por segmento (tenure, plan, region).
+- Monitoreo de performance y drift por ventana temporal.

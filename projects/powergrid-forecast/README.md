@@ -1,40 +1,43 @@
-# <Project Title>
+# PowerGrid Analytics — Energy Demand Forecasting (E2E)
 
-**One-liner:** <Qué resuelve + para quién>  
-**Stack:** <Python, SQL, LightGBM, FastAPI, Streamlit, MLflow...>  
-**Deliverable:** <API / Dashboard / Pipeline>  
-**Results:** <Métrica principal + breve interpretación>
+**One-liner:** Sistema end-to-end para pronóstico de demanda energética y soporte a operación (API + monitoreo + buenas prácticas).  
+**Stack:** Python, pandas, modelo de forecasting (LightGBM/ML u otro), FastAPI, (Streamlit si aplica), tests/monitoring (si aplica).  
+**Deliverable:** Pipeline reproducible + API + (dashboard/monitoring si aplica).  
+**Results:** MAPE ~5.10% (según evaluación del proyecto).
 
 ## Problem
-<2–4 líneas del problema y el contexto>
+Pronosticar demanda eléctrica para apoyar planeación operativa y reducir riesgo de sobre/sub-contratación. El reto central es manejar estacionalidad, patrones horarios y evitar leakage temporal.
 
 ## Data
-- Source: <Kaggle / público / propio>
-- Size: <filas/columnas o periodo>
+- Source: <completa: público / Kaggle / otro>
+- Size: <completa: periodo, granularidad (hora/día), filas>
 
 ## Approach
-- <bullet 1>
-- <bullet 2>
-- <bullet 3>
+- Preparación de serie(s): limpieza, manejo de faltantes y creación de variables temporales.
+- Backtesting con split temporal (walk-forward o ventanas) para evaluación realista.
+- Servicio del modelo mediante API; y si aplica, monitoreo de drift/performance por ventana.
 
 ## Results
-- Metric(s): <AUC/F1/RMSE/MAPE...>
-- Key insight: <1–2 líneas>
+- Metric(s): MAPE ~5.10%
+- Key insight: La evaluación temporal (backtesting) es clave; un split aleatorio puede inflar métricas y no generaliza.
 
 ## Demo
-- <link o "local">
+- API: <link o "local">
+- Dashboard/Monitoring: <link o "local">
 
 ## How to run
 - Install:
   - `pip install -r requirements.txt`
 - Run (si aplica):
-  - `streamlit run app/app.py`
   - `uvicorn app.main:app --reload`
+  - `streamlit run app/app.py`
 
 ## Repo structure
-- <carpeta 1>
-- <carpeta 2>
+- `src/` lógica de datos/features/modelo
+- `app/` API y/o dashboard
+- `tests/` pruebas (si aplica)
+- `reports/` figuras y resultados
 
 ## Next steps
-- <mejora 1>
-- <mejora 2>
+- Intervalos de predicción (P10/P50/P90) para decisiones bajo incertidumbre.
+- Monitoreo de drift estacional y performance por región/segmento temporal.

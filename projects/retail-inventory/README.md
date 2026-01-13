@@ -1,40 +1,44 @@
-# <Project Title>
+# Retail Inventory Demand + Restocking Plan (E2E)
 
-**One-liner:** <Qué resuelve + para quién>  
-**Stack:** <Python, SQL, LightGBM, FastAPI, Streamlit, MLflow...>  
-**Deliverable:** <API / Dashboard / Pipeline>  
-**Results:** <Métrica principal + breve interpretación>
+**One-liner:** Sistema end-to-end para predecir demanda y generar un plan de reabastecimiento, con entrega vía API y dashboard (si aplica).  
+**Stack:** Python, pandas, modelo de forecasting/clasificación (según tu enfoque), FastAPI, Streamlit (si aplica).  
+**Deliverable:** Pipeline reproducible + API + (dashboard) + recomendación de restock.  
+**Results:** <completa: métrica de forecast y/o KPI operativo (fill rate, stockouts evitados, etc.)>.
 
 ## Problem
-<2–4 líneas del problema y el contexto>
+Predecir demanda y transformar predicciones en decisiones accionables de inventario: cuánto reabastecer y cuándo, para reducir quiebres de stock y exceso de inventario.
 
 ## Data
-- Source: <Kaggle / público / propio>
-- Size: <filas/columnas o periodo>
+- Source: <completa: público / Kaggle / otro>
+- Size: <completa: SKUs, tiendas, periodo>
 
 ## Approach
-- <bullet 1>
-- <bullet 2>
-- <bullet 3>
+- Preparación de datos + features (temporales, promociones, estacionalidad si aplica).
+- Pronóstico / predicción de demanda y evaluación con split temporal.
+- Lógica de reabastecimiento (reglas + parámetros: lead time, safety stock, reorder point).
+- Exposición mediante API y visualización en dashboard para planeación.
 
 ## Results
-- Metric(s): <AUC/F1/RMSE/MAPE...>
-- Key insight: <1–2 líneas>
+- Metric(s): <completa>
+- Key insight: Convertir forecast en política de restocking (ROP/safety stock) conecta ML con impacto operativo.
 
 ## Demo
-- <link o "local">
+- API: <link o "local">
+- Dashboard: <link o "local">
 
 ## How to run
 - Install:
   - `pip install -r requirements.txt`
 - Run (si aplica):
-  - `streamlit run app/app.py`
   - `uvicorn app.main:app --reload`
+  - `streamlit run app/app.py`
 
 ## Repo structure
-- <carpeta 1>
-- <carpeta 2>
+- `src/` lógica de datos/features/modelo
+- `app/` API y/o dashboard
+- `reports/` figuras y resultados
+- `tests/` pruebas (si aplica)
 
 ## Next steps
-- <mejora 1>
-- <mejora 2>
+- Simulación de inventario para comparar políticas (baseline vs ML-driven).
+- Métricas de negocio: stockouts, overstock, fill rate, costo total.

@@ -3,14 +3,14 @@
 **One-liner:** Plataforma end-to-end para pronosticar demanda (M5/Walmart) y habilitar planeación de inventario vía API y dashboard.  
 **Stack:** Python, pandas, LightGBM/ML, MLflow (si aplica), FastAPI, Streamlit.  
 **Deliverable:** Pipeline reproducible + tracking (si aplica) + API + Dashboard.  
-**Results:** <completa: RMSE/WRMSSE/MAPE u otra métrica del proyecto>.
+**Results:** MAE 0.6845, RMSE 3.9554, MAPE 52.75% (batch N=28,000).
 
 ## Problem
 Predecir la demanda futura por tienda/producto para soportar decisiones de inventario y reposición, minimizando errores y evitando leakage temporal.
 
 ## Data
-- Source: M5 Forecasting (Walmart) / Kaggle (si aplica)
-- Size: <completa: #series / periodo / filas>
+- Source: M5 Forecasting (Walmart) / Kaggle
+- Size: 30,490 series, 1,969 días históricos
 
 ## Approach
 - Feature engineering temporal (lags, rolling stats, calendarios/eventos, precios).
@@ -18,19 +18,21 @@ Predecir la demanda futura por tienda/producto para soportar decisiones de inven
 - Modelo (LightGBM u otro) + registro/experimentos (si aplica) y exposición mediante API/dashboard.
 
 ## Results
-- Metric(s): <completa>
+- Metric(s): MAE 0.6845, RMSE 3.9554, MAPE 52.75% (batch)
+- Mejora vs baseline: 29.78% MAE, 33.29% RMSE
 - Key insight: Las variables de calendario/eventos + lags/rolling capturan estacionalidad y mejoran el desempeño vs baselines.
+  - ROI demo (10 tiendas): ~$467K/año
 
 ## Demo
-- API: <link o "local">
-- Dashboard: <link o "local">
+- API: local (`make api`)
+- Dashboard: local (`make dashboard`)
 
 ## How to run
 - Install:
   - `pip install -r requirements.txt`
-- Run (si aplica):
-  - `uvicorn app.main:app --reload`
-  - `streamlit run app/app.py`
+- Run:
+  - `make api`
+  - `make dashboard`
 
 ## Repo structure
 - `src/` lógica de datos/features/modelo

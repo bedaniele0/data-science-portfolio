@@ -1,4 +1,4 @@
-# Data Science Portfolio — Daniel Evarella
+# Data Science Portfolio — Daniel Varela Perez
 
 Portafolio orientado a rol **Data Scientist (E2E)**: modelado + despliegue (API) + dashboards + buenas prácticas.
 
