@@ -9,7 +9,7 @@ Portafolio para rol **Data Scientist (E2E / Applied)**: modelado, despliegue (AP
 - Email: bedaniele0@gmail.com
 - Tel: +52 55 4189 3428
 - GitHub: https://github.com/bedaniele0
-- LinkedIn: https://linkedin.com/in/daniel-varela-perez-260499199/
+- LinkedIn: https://linkedin.com/in/daniel-varela-perez
 - CV: [PDF](cv/CV_Daniel_Varela_Perez_Data_Scientist_E2E.pdf)
 
 ## Perfil
