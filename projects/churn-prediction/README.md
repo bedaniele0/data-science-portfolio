@@ -1,16 +1,16 @@
 # Customer Churn Prediction (E2E)
 
 **One-liner:** Sistema end-to-end para predecir churn y priorizar acciones de retención con enfoque costo/beneficio (umbral operativo).  
-**Stack:** Python, pandas, scikit-learn/LightGBM, FastAPI, Streamlit (si aplica).  
-**Deliverable:** Pipeline reproducible + API + (dashboard) + recomendación de umbral.  
-**Results:** Recall ~92.5% (según evaluación del proyecto) + política de decisión (si aplica).
+**Stack:** Python, LightGBM, FastAPI, Streamlit, MLflow.  
+**Deliverable:** Pipeline reproducible + API + dashboard + monitoreo.  
+**Results:** AUC 0.8380, Recall 0.9251, Precision 0.4251, F1 0.5825.
 
 ## Problem
 Predecir qué clientes tienen mayor probabilidad de abandonar para enfocar campañas de retención. La parte crítica es decidir el **umbral** según costos: retener a quien no se iba (FP) vs perder a quien sí se iba (FN).
 
 ## Data
-- Source: <completa: público / Kaggle / IBM Telco / otro>
-- Size: <completa: filas/columnas>
+- Source: IBM Telco Customer Churn (publico)
+- Size: 7,043 filas (CSV)
 
 ## Approach
 - EDA + preparación (missing, encoding, escalado si aplica).
@@ -19,25 +19,35 @@ Predecir qué clientes tienen mayor probabilidad de abandonar para enfocar campa
 - Exposición mediante API y dashboard para scoring y exploración.
 
 ## Results
-- Metric(s): Recall ~92.5% (y/o AUC/F1 si aplica)
+- Metric(s): AUC 0.8380, Recall 0.9251, Precision 0.4251, KS 0.5429
 - Key insight: Ajustar umbral por costo suele mejorar valor de negocio frente a maximizar una sola métrica.
 
+## Impact
+- Objetivo de negocio: reducir riesgo o mejorar decision operativa
+- Solucion: pipeline end-to-end con modelo + API + dashboard
+- Metrica clave: ver seccion Results
+- ROI demo: ver seccion Results si aplica
+
+## Dashboard
+<img src="../../assets/images/customer-churn-dashboard-1.png" style="width:100%; max-width:100%; height:auto;" alt="Customer churn dashboard 1">
+<em>Distribución de churn</em><br>
+<img src="../../assets/images/customer-churn-dashboard-2.png" style="width:100%; max-width:100%; height:auto;" alt="Customer churn dashboard 2">
+<em>Boxplots numéricos</em><br>
+
 ## Demo
-- API: <link o "local">
-- Dashboard: <link o "local">
+- API: local (`uvicorn src.api.churn_api:app --reload`)
+- Dashboard: local (`streamlit run src/visualization/dashboard.py`)
 
 ## How to run
 - Install:
   - `pip install -r requirements.txt`
-- Run (si aplica):
-  - `uvicorn app.main:app --reload`
-  - `streamlit run app/app.py`
+- Run:
+  - `uvicorn src.api.churn_api:app --reload`
+  - `streamlit run src/visualization/dashboard.py`
 
 ## Repo structure
-- `src/` lógica de datos/features/modelo
-- `app/` API y/o dashboard
-- `reports/` figuras y resultados
-- `tests/` pruebas (si aplica)
+- `src/` API, modelos, monitoreo
+- `reports/metrics/` metricas oficiales
 
 ## Next steps
 - Calibración de probabilidades y análisis por segmentos (plan, región, tenure).

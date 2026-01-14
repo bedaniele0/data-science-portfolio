@@ -23,6 +23,18 @@ Predecir la demanda futura por tienda/producto para soportar decisiones de inven
 - Key insight: Las variables de calendario/eventos + lags/rolling capturan estacionalidad y mejoran el desempeño vs baselines.
   - ROI demo (10 tiendas): ~$467K/año
 
+## Impact
+- Objetivo de negocio: reducir riesgo o mejorar decision operativa
+- Solucion: pipeline end-to-end con modelo + API + dashboard
+- Metrica clave: ver seccion Results
+- ROI demo: ver seccion Results si aplica
+
+## Dashboard
+<img src="../../assets/images/walmart-dashboard-1.png" style="width:100%; max-width:100%; height:auto;" alt="Walmart dashboard 1">
+<em>KPIs generales</em><br>
+<img src="../../assets/images/walmart-dashboard-2.png" style="width:100%; max-width:100%; height:auto;" alt="Walmart dashboard 2">
+<em>Predicciones recientes</em><br>
+
 ## Demo
 - API: local (`make api`)
 - Dashboard: local (`make dashboard`)

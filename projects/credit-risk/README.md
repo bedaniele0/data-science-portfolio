@@ -21,6 +21,18 @@ Construir un modelo de riesgo crediticio que entregue probabilidades confiables 
 - Metric(s): AUC 0.7813, KS 0.4251, Recall 0.8704, Precision 0.3107, Brier 0.1349
 - Key insight: En riesgo, además de AUC/KS, la calibración y el monitoreo son críticos para decisiones consistentes.
 
+## Impact
+- Objetivo de negocio: reducir riesgo o mejorar decision operativa
+- Solucion: pipeline end-to-end con modelo + API + dashboard
+- Metrica clave: ver seccion Results
+- ROI demo: ver seccion Results si aplica
+
+## Dashboard
+<img src="../../assets/images/credit-risk-dashboard-1.png" style="width:100%; max-width:100%; height:auto;" alt="Credit risk dashboard 1">
+<em>Optimización de umbral</em><br>
+<img src="../../assets/images/credit-risk-dashboard-2.png" style="width:100%; max-width:100%; height:auto;" alt="Credit risk dashboard 2">
+<em>Importancia de variables</em><br>
+
 ## Demo
 - API: local (`uvicorn src.api.main:app --reload`)
 - Dashboard/Monitoring: local (`streamlit run src/visualization/dashboard.py`)

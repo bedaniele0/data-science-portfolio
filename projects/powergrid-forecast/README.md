@@ -1,16 +1,16 @@
 # PowerGrid Analytics — Energy Demand Forecasting (E2E)
 
 **One-liner:** Sistema end-to-end para pronóstico de demanda energética y soporte a operación (API + monitoreo + buenas prácticas).  
-**Stack:** Python, pandas, modelo de forecasting (LightGBM/ML u otro), FastAPI, (Streamlit si aplica), tests/monitoring (si aplica).  
-**Deliverable:** Pipeline reproducible + API + (dashboard/monitoring si aplica).  
-**Results:** MAPE ~5.10% (según evaluación del proyecto).
+**Stack:** Python, XGBoost, FastAPI, Streamlit, Prometheus/Grafana.  
+**Deliverable:** Pipeline reproducible + API + dashboard + monitoreo.  
+**Results:** MAPE 5.10%, R2 0.9555, MAE 319.88 kW.
 
 ## Problem
 Pronosticar demanda eléctrica para apoyar planeación operativa y reducir riesgo de sobre/sub-contratación. El reto central es manejar estacionalidad, patrones horarios y evitar leakage temporal.
 
 ## Data
-- Source: <completa: público / Kaggle / otro>
-- Size: <completa: periodo, granularidad (hora/día), filas>
+- Source: dataset demo de consumo energetico
+- Size: train 1,000 filas, test 100 filas
 
 ## Approach
 - Preparación de serie(s): limpieza, manejo de faltantes y creación de variables temporales.
@@ -18,19 +18,31 @@ Pronosticar demanda eléctrica para apoyar planeación operativa y reducir riesg
 - Servicio del modelo mediante API; y si aplica, monitoreo de drift/performance por ventana.
 
 ## Results
-- Metric(s): MAPE ~5.10%
+- Metric(s): MAPE 5.10%, R2 0.9555, RMSE 400.84 kW
 - Key insight: La evaluación temporal (backtesting) es clave; un split aleatorio puede inflar métricas y no generaliza.
 
+## Impact
+- Objetivo de negocio: reducir riesgo o mejorar decision operativa
+- Solucion: pipeline end-to-end con modelo + API + dashboard
+- Metrica clave: ver seccion Results
+- ROI demo: ver seccion Results si aplica
+
+## Dashboard
+<img src="../../assets/images/energy-dashboard-1.png" style="width:100%; max-width:100%; height:auto;" alt="Energy dashboard 1">
+<em>Series y pronósticos</em><br>
+<img src="../../assets/images/energy-dashboard-2.png" style="width:100%; max-width:100%; height:auto;" alt="Energy dashboard 2">
+<em>Evaluación de desempeño</em><br>
+
 ## Demo
-- API: <link o "local">
-- Dashboard/Monitoring: <link o "local">
+- API: local (`python3 src/run_api.py`)
+- Dashboard/Monitoring: local (`streamlit run src/dashboard.py`)
 
 ## How to run
 - Install:
   - `pip install -r requirements.txt`
-- Run (si aplica):
-  - `uvicorn app.main:app --reload`
-  - `streamlit run app/app.py`
+- Run:
+  - `python3 src/run_api.py`
+  - `streamlit run src/dashboard.py`
 
 ## Repo structure
 - `src/` lógica de datos/features/modelo

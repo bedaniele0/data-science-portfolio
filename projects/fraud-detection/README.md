@@ -22,6 +22,18 @@ Detectar fraude en transacciones con foco en minimizar falsos negativos sin disp
 - Key insight: Ajustar umbral según costo de FN/FP mejora la utilidad operativa frente a optimizar solo una métrica global.
   - ROI demo (supuestos conservadores): ahorro potencial ~$25.9M/año, conservador ~$7.8M/año
 
+## Impact
+- Objetivo de negocio: reducir riesgo o mejorar decision operativa
+- Solucion: pipeline end-to-end con modelo + API + dashboard
+- Metrica clave: ver seccion Results
+- ROI demo: ver seccion Results si aplica
+
+## Dashboard
+<img src="../../assets/images/fraud-dashboard-1.png" style="width:100%; max-width:100%; height:auto;" alt="Fraud dashboard 1">
+<em>Comparativa de modelos</em><br>
+<img src="../../assets/images/fraud-dashboard-2.png" style="width:100%; max-width:100%; height:auto;" alt="Fraud dashboard 2">
+<em>Análisis detallado del mejor modelo</em><br>
+
 ## Demo
 - API: local (`fraud-api` o `uvicorn api.main:app --reload`)
 - Dashboard: local (`fraud-dashboard`)
