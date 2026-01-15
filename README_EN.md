@@ -30,6 +30,7 @@ E2E Data Scientist focused on full-stack solutions: data prep, modeling, validat
 <em>Walmart Forecasting — predictions</em><br>
 
 ## Live Demo (Checklist)
+- ✅ Fraud Detection (Streamlit): https://bedaniele0-fraud-dete-dashboardfraud-detection-dashboard-lvseck.streamlit.app/
 - Deploy 1-2 apps (Streamlit/Render) with public link
 - Include a reduced or synthetic demo dataset
 - Add deployment instructions and environment variables

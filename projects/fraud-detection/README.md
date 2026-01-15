@@ -35,6 +35,7 @@ Detectar fraude en transacciones con foco en minimizar falsos negativos sin disp
 <em>Análisis detallado del mejor modelo</em><br>
 
 ## Demo
+- Live (Streamlit): https://bedaniele0-fraud-dete-dashboardfraud-detection-dashboard-lvseck.streamlit.app/
 - API: local (`fraud-api` o `uvicorn api.main:app --reload`)
 - Dashboard: local (`fraud-dashboard`)
 
