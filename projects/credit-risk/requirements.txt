@@ -1,0 +1,61 @@
+# Credit Risk Scoring - Dependencies (Pinned)
+# Autor: Ing. Daniel Varela Pérez
+# Email: bedaniele0@gmail.com
+# Fecha: 2026-02-04
+# Metodología: DVP-PRO v2.0
+
+# Core Data Science
+numpy==2.3.5
+pandas==2.3.3
+scipy==1.16.3
+
+# Machine Learning
+scikit-learn==1.8.0
+lightgbm==4.6.0
+xgboost==2.1.4
+
+# Hyperparameter Optimization
+optuna==4.6.0
+optuna-integration[lightgbm]==4.6.0
+
+# MLOps & Tracking
+mlflow==3.6.0
+
+# Visualization
+matplotlib==3.10.7
+seaborn==0.13.2
+plotly==5.24.1
+streamlit==1.52.1
+
+# Model Serialization
+joblib==1.5.2
+cloudpickle==2.2.1
+
+# Notebook Support
+ipykernel==7.1.0
+ipywidgets==8.1.8
+
+# Progress Bars
+tqdm==4.67.1
+
+# Utilities
+python-dotenv==1.2.1
+pyyaml==6.0.3
+
+# API Framework (Productización)
+fastapi==0.121.2
+uvicorn[standard]==0.38.0
+pydantic==2.12.4
+python-multipart==0.0.20
+prometheus-client==0.23.1
+
+# Model Interpretability
+shap==0.50.0
+
+# Testing
+pytest==9.0.2
+pytest-cov==7.0.0
+httpx==0.28.1
+
+# HTTP Client
+requests==2.32.5

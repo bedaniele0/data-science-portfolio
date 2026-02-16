@@ -1,0 +1,10 @@
+flowchart LR
+  A[Data Sources] --> B[Validation & Contracts]
+  B --> C[Feature Pipeline]
+  C --> D[Train & Evaluate]
+  D --> E[Model Registry]
+  E --> F[Serve API]
+  E --> G[Batch Scoring]
+  F --> H[Monitoring & Drift]
+  G --> H
+  H --> I[Runbook & Alerts]

@@ -24,10 +24,10 @@ Predecir la demanda futura por tienda/producto para soportar decisiones de inven
   - ROI demo (10 tiendas): ~$467K/año
 
 ## Impact
-- Objetivo de negocio: reducir riesgo o mejorar decision operativa
-- Solucion: pipeline end-to-end con modelo + API + dashboard
-- Metrica clave: ver seccion Results
-- ROI demo: ver seccion Results si aplica
+- Objetivo de negocio: reducir riesgo o mejorar decisión operativa
+- Solución: pipeline end-to-end con modelo + API + dashboard
+- Métrica clave: ver sección Results
+- ROI demo: ver sección Results si aplica
 
 ## Dashboard
 <img src="../../assets/images/walmart-dashboard-1.png" style="width:100%; max-width:100%; height:auto;" alt="Walmart dashboard 1">
@@ -39,16 +39,26 @@ Predecir la demanda futura por tienda/producto para soportar decisiones de inven
 - API: local (`make api`)
 - Dashboard: local (`make dashboard`)
 
+## Quickstart (local)
+```bash
+make install
+make train
+make api
+make dashboard
+make monitor
+```
+
 ## How to run
 - Install:
-  - `pip install -r requirements.txt`
+  - `make install`
 - Run:
   - `make api`
   - `make dashboard`
 
 ## Repo structure
 - `src/` lógica de datos/features/modelo
-- `app/` API y/o dashboard
+- `src/api/` API FastAPI
+- `src/visualization/` dashboard
 - `reports/` figuras y resultados
 - `tests/` pruebas (si aplica)
 

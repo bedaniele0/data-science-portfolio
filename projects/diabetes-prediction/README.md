@@ -3,7 +3,7 @@
 **One-liner:** Plataforma end-to-end para predicción de diabetes con explicabilidad (SHAP) y consumo vía API + dashboard (si aplica).  
 **Stack:** Python, RandomForest, SHAP, FastAPI, Streamlit.  
 **Deliverable:** Pipeline reproducible + API + dashboard + explicabilidad.  
-**Results:** AUC 0.8414, Accuracy 0.7857, Recall 0.7407 (piloto).
+**Results:** AUC 84.14%, Accuracy 78.57%, Recall 74.07% (piloto).
 
 ## Problem
 Apoyar detección temprana estimando riesgo de diabetes a partir de variables clínicas. Importante: interpretar predicciones (explicabilidad) para confianza y adopción.
@@ -19,14 +19,17 @@ Apoyar detección temprana estimando riesgo de diabetes a partir de variables cl
 - Exposición vía API (y dashboard si aplica) para uso interactivo.
 
 ## Results
-- Metric(s): AUC 0.8414, Accuracy 0.7857, Recall 0.7407, Precision 0.6780, F1 0.7080, Specificity 0.81
+- Metric(s): AUC 84.14%, Accuracy 78.57%, Recall 74.07%, Precision 67.80%, F1 70.80%, Specificity 81%
 - Key insight: SHAP permite explicar qué variables empujan el riesgo por paciente, facilitando revisión y confianza del modelo.
 
+
+**Nota:** Proyecto de referencia (demo) enfocado en resultados. Código completo disponible a solicitud.
+
 ## Impact
-- Objetivo de negocio: reducir riesgo o mejorar decision operativa
-- Solucion: pipeline end-to-end con modelo + API + dashboard
-- Metrica clave: ver seccion Results
-- ROI demo: ver seccion Results si aplica
+- Objetivo de negocio: reducir riesgo o mejorar decisión operativa
+- Solución: pipeline end-to-end con modelo + API + dashboard
+- Métrica clave: ver sección Results
+- ROI demo: ver sección Results si aplica
 
 ## Dashboard
 <img src="../../assets/images/diabetes-dashboard-1.png" style="width:100%; max-width:100%; height:auto;" alt="Diabetes dashboard 1">
@@ -44,10 +47,6 @@ Apoyar detección temprana estimando riesgo de diabetes a partir de variables cl
 - Run:
   - `make api`
   - `make dashboard`
-
-## Repo structure
-- `src/` API, modelo y preprocesamiento
-- `docs/` reportes técnicos/ejecutivos
 
 ## Next steps
 - Calibración y análisis de umbrales (sensibilidad vs especificidad).

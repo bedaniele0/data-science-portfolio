@@ -9,7 +9,7 @@
 Predecir demanda y transformar predicciones en decisiones accionables de inventario: cuánto reabastecer y cuándo, para reducir quiebres de stock y exceso de inventario.
 
 ## Data
-- Source: dataset demo retail/logistica (interno)
+- Source: dataset demo retail/logística (interno)
 - Size: X_train 135,368 filas (features procesadas)
 
 ## Approach
@@ -22,11 +22,14 @@ Predecir demanda y transformar predicciones en decisiones accionables de inventa
 - Metric(s): MAE 6,937, RMSE 24,318, R2 0.119
 - Key insight: Convertir forecast en política de restocking (ROP/safety stock) conecta ML con impacto operativo.
 
+
+**Nota:** Proyecto de referencia (demo) enfocado en resultados. Código completo disponible a solicitud.
+
 ## Impact
-- Objetivo de negocio: reducir riesgo o mejorar decision operativa
-- Solucion: pipeline end-to-end con modelo + API + dashboard
-- Metrica clave: ver seccion Results
-- ROI demo: ver seccion Results si aplica
+- Objetivo de negocio: reducir riesgo o mejorar decisión operativa
+- Solución: pipeline end-to-end con modelo + API + dashboard
+- Métrica clave: ver sección Results
+- ROI demo: ver sección Results si aplica
 
 ## Dashboard
 <img src="../../assets/images/inventario-dashboard-1.png" style="width:100%; max-width:100%; height:auto;" alt="Inventory dashboard 1">
@@ -44,11 +47,6 @@ Predecir demanda y transformar predicciones en decisiones accionables de inventa
 - Run:
   - `make run`
   - `make api` / `make dashboard`
-
-## Repo structure
-- `src/` lógica de datos/modelo
-- `api/` API REST
-- `dashboard/` Streamlit
 
 ## Next steps
 - Simulación de inventario para comparar políticas (baseline vs ML-driven).

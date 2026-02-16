@@ -3,7 +3,7 @@
 **One-liner:** Predicción de churn en telecom con política de intervención basada en ROI para priorizar acciones de retención.  
 **Stack:** Python, pandas, scikit-learn/LightGBM, FastAPI, Streamlit.  
 **Deliverable:** Modelo + evaluación + política ROI + API/Dashboard.  
-**Results:** AUC 0.832, F1 0.624, Recall 0.807, Precision 0.508, ROI 4.56x.
+**Results:** AUC 83.20%, F1 62.40%, Recall 80.70%, Precision 50.80%, ROI 4.56x.
 
 ## Problem
 Predecir churn y decidir a quién intervenir considerando costos de retención e impacto esperado. En churn, el modelo es solo una parte: la política de acción es lo que genera valor.
@@ -18,14 +18,17 @@ Predecir churn y decidir a quién intervenir considerando costos de retención e
 - (Opcional) Exposición mediante API y/o dashboard para scoring y análisis.
 
 ## Results
-- Metric(s): AUC 0.832, F1 0.624, Recall 0.807, Precision 0.508 + ROI 4.56x
+- Metric(s): AUC 83.20%, F1 62.40%, Recall 80.70%, Precision 50.80% + ROI 4.56x
 - Key insight: Un enfoque ROI convierte probabilidades en decisiones, maximizando impacto y evitando gastar en clientes con bajo retorno.
 
+
+**Nota:** Proyecto de referencia (demo) enfocado en resultados. Código completo disponible a solicitud.
+
 ## Impact
-- Objetivo de negocio: reducir riesgo o mejorar decision operativa
-- Solucion: pipeline end-to-end con modelo + API + dashboard
-- Metrica clave: ver seccion Results
-- ROI demo: ver seccion Results si aplica
+- Objetivo de negocio: reducir riesgo o mejorar decisión operativa
+- Solución: pipeline end-to-end con modelo + API + dashboard
+- Métrica clave: ver sección Results
+- ROI demo: ver sección Results si aplica
 
 ## Dashboard
 <img src="../../assets/images/telco-dashboard-2.png" style="width:100%; max-width:100%; height:auto;" alt="Telco churn dashboard">
@@ -42,11 +45,6 @@ Predecir churn y decidir a quién intervenir considerando costos de retención e
   - `uvicorn src.api.main:app --reload`
   - `streamlit run dashboard/app.py`
 
-## Repo structure
-- `src/` pipelines y API
-- `dashboard/` Streamlit
-- `docs/` entregables por fase
-
 ## Next steps
-- Calibración de probabilidades y análisis por segmento (tenure, plan, region).
+- Calibración de probabilidades y análisis por segmento (tenure, plan, región).
 - Monitoreo de performance y drift por ventana temporal.

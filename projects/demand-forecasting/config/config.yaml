@@ -1,0 +1,444 @@
+# Walmart Demand Forecasting - Configuration
+# Autor: Ing. Daniel Varela Perez
+# Email: bedaniele0@gmail.com
+# Tel: +52 55 4189 3428
+
+# ============================================
+# PROJECT METADATA
+# ============================================
+project:
+  name: "walmart-demand-forecasting"
+  version: "1.0.0"
+  author: "Ing. Daniel Varela Perez"
+  email: "bedaniele0@gmail.com"
+  tel: "+52 55 4189 3428"
+  description: "Walmart Demand Forecasting & Inventory Optimization using M5 Dataset"
+  start_date: "2024-12-04"
+
+# ============================================
+# PATHS
+# ============================================
+paths:
+  # Data directories
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  data_interim: "data/interim"
+  data_external: "data/external"
+
+  # Model directories
+  models: "models"
+  mlflow_tracking: "mlruns"
+
+  # Reports and outputs
+  reports: "reports"
+  figures: "reports/figures"
+  metrics: "reports/metrics"
+
+  # Logs
+  logs: "logs"
+
+  # Notebooks
+  notebooks: "notebooks"
+
+# ============================================
+# DATA FILES
+# ============================================
+data_files:
+  sales_train: "sales_train_validation.csv"
+  sales_eval: "sales_train_evaluation.csv"
+  calendar: "calendar.csv"
+  prices: "sell_prices.csv"
+  submission: "sample_submission.csv"
+
+# ============================================
+# DATA PARAMETERS
+# ============================================
+data:
+  # Date ranges
+  start_date: "2011-01-29"
+  end_date: "2016-06-19"
+  validation_start: "2016-04-25"  # Last 28 days for validation
+
+  # Dataset characteristics
+  n_stores: 10
+  n_items: 3049
+  n_series: 30490
+  n_days_train: 1913
+  n_days_validation: 28
+
+  # Categories
+  categories:
+    - "HOBBIES"
+    - "FOODS"
+    - "HOUSEHOLD"
+
+  # States
+  states:
+    - "CA"
+    - "TX"
+    - "WI"
+
+  # Stores
+  stores:
+    CA: ["CA_1", "CA_2", "CA_3", "CA_4"]
+    TX: ["TX_1", "TX_2", "TX_3"]
+    WI: ["WI_1", "WI_2", "WI_3"]
+
+# ============================================
+# FEATURE ENGINEERING
+# ============================================
+features:
+  # Lag features (días)
+  lags: [1, 2, 3, 7, 14, 28]
+
+  # Rolling windows (días)
+  rolling_windows: [7, 14, 28, 90, 180]
+
+  # Rolling statistics
+  rolling_stats:
+    - "mean"
+    - "std"
+    - "min"
+    - "max"
+    - "median"
+
+  # Price features
+  price_features:
+    - "price_current"
+    - "price_change_pct"
+    - "price_momentum"
+    - "price_relative_to_category"
+
+  # Calendar features
+  calendar_features:
+    - "day_of_week"
+    - "day_of_month"
+    - "week_of_year"
+    - "month"
+    - "quarter"
+    - "year"
+    - "is_weekend"
+    - "is_month_start"
+    - "is_month_end"
+    - "is_quarter_start"
+    - "is_quarter_end"
+
+  # Event features
+  event_types:
+    - "Cultural"
+    - "National"
+    - "Religious"
+    - "Sporting"
+
+  # SNAP features (by state)
+  snap_states: ["CA", "TX", "WI"]
+
+# ============================================
+# MODEL PARAMETERS
+# ============================================
+model:
+  # General
+  random_state: 42
+  n_jobs: -1
+
+  # Train/validation split
+  test_size: 0.2
+  validation_days: 28
+
+  # Cross-validation
+  cv_folds: 5
+  time_series_split: true
+
+  # Forecasting horizon
+  forecast_horizon: 28
+
+  # Target variable
+  target: "sales"
+
+  # Baseline models to try
+  baseline_models:
+    - "naive"
+    - "seasonal_naive"
+    - "moving_average"
+    - "exponential_smoothing"
+
+  # Statistical models
+  statistical_models:
+    - "arima"
+    - "sarima"
+    - "prophet"
+    - "ets"
+
+  # ML models
+  ml_models:
+    - "linear_regression"
+    - "ridge"
+    - "lasso"
+    - "random_forest"
+    - "xgboost"
+    - "lightgbm"
+    - "catboost"
+
+  # DL models (optional)
+  dl_models:
+    - "lstm"
+    - "gru"
+    - "nbeats"
+
+# ============================================
+# HYPERPARAMETERS (Default values)
+# ============================================
+hyperparameters:
+  # XGBoost
+  xgboost:
+    n_estimators: 1000
+    max_depth: 8
+    learning_rate: 0.01
+    subsample: 0.8
+    colsample_bytree: 0.8
+    gamma: 0
+    reg_alpha: 0
+    reg_lambda: 1
+    early_stopping_rounds: 50
+
+  # LightGBM
+  lightgbm:
+    n_estimators: 1000
+    max_depth: 8
+    learning_rate: 0.01
+    num_leaves: 31
+    subsample: 0.8
+    colsample_bytree: 0.8
+    reg_alpha: 0
+    reg_lambda: 1
+    early_stopping_rounds: 50
+
+  # Prophet
+  prophet:
+    growth: "linear"
+    changepoint_prior_scale: 0.05
+    seasonality_prior_scale: 10
+    seasonality_mode: "multiplicative"
+    yearly_seasonality: true
+    weekly_seasonality: true
+    daily_seasonality: false
+
+# ============================================
+# EVALUATION METRICS
+# ============================================
+metrics:
+  # Regression metrics
+  regression:
+    - "mae"
+    - "rmse"
+    - "mape"
+    - "smape"
+    - "r2"
+    - "mse"
+
+  # M5 specific metrics
+  m5_metrics:
+    - "wrmsse"  # Weighted Root Mean Squared Scaled Error (primary)
+    - "rmsse"   # Root Mean Squared Scaled Error
+
+  # Business metrics
+  business:
+    - "stockout_rate"
+    - "inventory_turnover"
+    - "service_level"
+    - "forecast_bias"
+
+# ============================================
+# OPTIMIZATION (Inventory)
+# ============================================
+optimization:
+  # Costs
+  costs:
+    holding_cost_pct: 0.20  # 20% annual holding cost
+    stockout_cost_multiplier: 3.0  # 3x the product price
+    ordering_cost: 100  # Fixed cost per order
+
+  # Service level target
+  service_level_target: 0.96  # 96%
+
+  # Lead time (days)
+  lead_time: 7
+
+  # Safety stock
+  safety_stock_z_score: 1.65  # For 95% service level
+
+# ============================================
+# MLFLOW TRACKING
+# ============================================
+mlflow:
+  tracking_uri: "sqlite:///mlflow.db"
+  experiment_name: "walmart_demand_forecasting"
+  artifact_location: "mlruns"
+
+  # Auto-logging
+  autolog: true
+
+  # Tags
+  default_tags:
+    project: "walmart-demand-forecasting"
+    author: "Ing. Daniel Varela Perez"
+    dataset: "M5 Forecasting"
+
+# ============================================
+# API CONFIGURATION
+# ============================================
+api:
+  host: "0.0.0.0"
+  port: 8000
+  reload: false
+  workers: 4
+  timeout: 60
+
+  # CORS
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://localhost:8501"
+
+  # Rate limiting
+  rate_limit:
+    enabled: true
+    max_requests: 100
+    window_seconds: 60
+
+# ============================================
+# DASHBOARD CONFIGURATION
+# ============================================
+dashboard:
+  port: 8501
+  title: "Walmart Demand Forecasting Dashboard"
+  layout: "wide"
+
+  # Refresh intervals (seconds)
+  refresh_interval: 300
+
+  # Display options
+  show_raw_data: true
+  show_metrics: true
+  show_predictions: true
+  show_optimization: true
+
+# ============================================
+# LOGGING
+# ============================================
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  datefmt: "%Y-%m-%d %H:%M:%S"
+
+  # Log files
+  files:
+    main: "logs/main.log"
+    training: "logs/training.log"
+    api: "logs/api.log"
+    errors: "logs/errors.log"
+
+  # Rotation
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+
+# ============================================
+# PERFORMANCE
+# ============================================
+performance:
+  # Parallel processing
+  use_multiprocessing: true
+  n_jobs: -1
+
+  # Memory management
+  chunk_size: 10000
+  low_memory: true
+
+  # Caching
+  cache_enabled: true
+  cache_dir: ".cache"
+
+  # GPU (if available)
+  use_gpu: false
+
+# ============================================
+# REPRODUCIBILITY
+# ============================================
+reproducibility:
+  random_seed: 42
+  numpy_seed: 42
+  torch_seed: 42
+  tensorflow_seed: 42
+
+  # Deterministic operations
+  deterministic: true
+
+# ============================================
+# TESTING
+# ============================================
+testing:
+  # Test data
+  test_size: 0.2
+
+  # Unit tests
+  pytest_options:
+    - "-v"
+    - "--cov=src"
+    - "--cov-report=html"
+
+  # Coverage threshold
+  coverage_threshold: 80
+
+# ============================================
+# DEPLOYMENT
+# ============================================
+deployment:
+  # Environment
+  environment: "development"  # development, staging, production
+
+  # Docker
+  docker:
+    image_name: "walmart-forecasting"
+    tag: "latest"
+    port: 8000
+
+  # Monitoring
+  monitoring:
+    enabled: false
+    prometheus_port: 9090
+    grafana_port: 3000
+
+# ============================================
+# BUSINESS RULES
+# ============================================
+business_rules:
+  # Minimum order quantity
+  min_order_qty: 1
+
+  # Maximum inventory days
+  max_inventory_days: 90
+
+  # Reorder point calculation
+  reorder_point_method: "forecast"  # forecast, historical, hybrid
+
+  # Forecast adjustments
+  apply_business_constraints: true
+  round_forecasts: true
+
+  # Outlier handling
+  cap_predictions: true
+  max_daily_sales: 1000
+
+# ============================================
+# ALERTS & NOTIFICATIONS
+# ============================================
+alerts:
+  enabled: false
+
+  # Thresholds
+  stockout_threshold: 0.05  # 5% predicted stockout probability
+  accuracy_drop_threshold: 0.10  # 10% drop in accuracy
+
+  # Notification channels
+  channels:
+    - "email"
+    - "slack"

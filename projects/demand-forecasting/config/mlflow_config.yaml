@@ -1,0 +1,89 @@
+# ============================================================================
+# mlflow_config.yaml - Configuración de MLflow
+# ============================================================================
+# Configuración para tracking de experimentos y model registry
+#
+# Autor: Ing. Daniel Varela Perez
+# Email: bedaniele0@gmail.com
+# Tel: +52 55 4189 3428
+# Metodología: DVP-PRO
+# ============================================================================
+
+# Tracking Configuration
+tracking_uri: "file:./mlruns"  # Local tracking (cambiar a http://mlflow:5000 para servidor)
+artifact_location: null  # null = default location dentro de mlruns/
+
+# Experiment Configuration
+experiment_name: "walmart-forecasting"
+default_run_name: "forecast-model-run"
+
+# Model Registry
+model_registry_uri: null  # null = usar mismo que tracking_uri
+registered_model_name: "walmart-demand-forecaster"
+
+# Autologging
+autolog:
+  enabled: true
+  log_input_examples: true
+  log_model_signatures: true
+  log_models: true
+  disable: false
+  exclusive: false
+  disable_for_unsupported_versions: false
+  silent: false
+
+# Artifacts Configuration
+artifacts:
+  log_models: true
+  log_feature_importance: true
+  log_forecast_plots: true
+  log_residual_plots: true
+  log_training_data_sample: true
+
+# Tags por default
+default_tags:
+  methodology: "DVP-PRO"
+  author: "Ing. Daniel Varela Perez"
+  project: "walmart-demand-forecasting"
+  framework: "scikit-learn"
+  dataset: "M5 Forecasting"
+
+# Métricas a trackear
+metrics_to_track:
+  - mae
+  - rmse
+  - mape
+  - wmape
+  - bias
+  - forecast_accuracy
+
+# Parámetros importantes a logear
+important_params:
+  - model_type
+  - n_estimators
+  - max_depth
+  - learning_rate
+  - random_state
+  - forecast_horizon
+  - aggregation_level
+  - feature_engineering_version
+  - data_version
+
+# Model Serving
+serving:
+  port: 5001
+  host: "0.0.0.0"
+  workers: 4
+
+# Retention Policy
+retention:
+  max_runs_per_experiment: 100  # Mantener últimos 100 runs
+  delete_runs_older_than_days: 90  # Eliminar runs > 90 días
+
+# Production Model Criteria
+production_criteria:
+  min_mae: 1.0
+  max_rmse: 5.0
+  max_mape: 60.0
+  min_forecast_accuracy: 0.70
+  max_inference_time_ms: 200

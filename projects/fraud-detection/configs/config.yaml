@@ -1,0 +1,23 @@
+project:
+  name: "Fraud Detection System"
+  author: "Ing. Daniel Varela Perez"
+  email: "bedaniele0@gmail.com"
+  version: "1.0.0"
+  platform: "macOS"
+
+data:
+  raw_path: "data/raw/creditcard.csv"
+  processed_path: "data/processed/"
+  db_engine: "sqlite:///fraud_detection.db"
+
+model:
+  test_size: 0.2
+  random_state: 42
+  n_jobs: -1  # Usar todos los cores disponibles
+
+metrics:
+  target_precision: 0.995
+  target_recall: 0.85
+
+system:
+  max_memory_gb: 8  # Ajustar según tu Mac

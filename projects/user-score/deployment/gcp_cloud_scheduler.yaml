@@ -1,0 +1,13 @@
+apiVersion: cloudscheduler.cnrm.cloud.google.com/v1beta1
+kind: CloudSchedulerJob
+metadata:
+  name: user-score-batch-daily
+spec:
+  schedule: "0 2 * * *"
+  timeZone: "UTC"
+  httpTarget:
+    uri: https://REGION-run.googleapis.com/apis/run.googleapis.com/v1/namespaces/PROJECT_ID/jobs/user-score-batch:run
+    httpMethod: POST
+    oauthToken:
+      serviceAccountRef:
+        name: scheduler-sa

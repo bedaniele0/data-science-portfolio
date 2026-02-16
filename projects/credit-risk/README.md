@@ -3,7 +3,7 @@
 **One-liner:** Sistema de scoring crediticio para estimar probabilidad de default y habilitar decisiones de riesgo vía API y monitoreo.  
 **Stack:** Python, pandas, scikit-learn/LightGBM, FastAPI, Streamlit (si aplica), monitoreo de drift (si aplica).  
 **Deliverable:** API (FastAPI) + pipeline reproducible + monitoreo (drift/metrics).  
-**Results:** AUC 0.7813, KS 0.4251, Recall 0.8704 (threshold 0.12), Brier 0.1349.
+**Results:** AUC 78.13%, KS 42.51%, Recall 87.04% (threshold 0.12), Brier 0.1349.
 
 ## Problem
 Construir un modelo de riesgo crediticio que entregue probabilidades confiables (calibradas si aplica) y permita operación segura en un flujo de evaluación de solicitudes.
@@ -18,14 +18,14 @@ Construir un modelo de riesgo crediticio que entregue probabilidades confiables 
 - Exposición por API y monitoreo: drift de variables + performance por ventanas.
 
 ## Results
-- Metric(s): AUC 0.7813, KS 0.4251, Recall 0.8704, Precision 0.3107, Brier 0.1349
+- Metric(s): AUC 78.13%, KS 42.51%, Recall 87.04%, Precision 31.07%, Brier 0.1349
 - Key insight: En riesgo, además de AUC/KS, la calibración y el monitoreo son críticos para decisiones consistentes.
 
 ## Impact
-- Objetivo de negocio: reducir riesgo o mejorar decision operativa
-- Solucion: pipeline end-to-end con modelo + API + dashboard
-- Metrica clave: ver seccion Results
-- ROI demo: ver seccion Results si aplica
+- Objetivo de negocio: reducir riesgo o mejorar decisión operativa
+- Solución: pipeline end-to-end con modelo + API + dashboard
+- Métrica clave: ver sección Results
+- ROI demo: ver sección Results si aplica
 
 ## Dashboard
 <img src="../../assets/images/credit-risk-dashboard-1.png" style="width:100%; max-width:100%; height:auto;" alt="Credit risk dashboard 1">
@@ -34,19 +34,29 @@ Construir un modelo de riesgo crediticio que entregue probabilidades confiables 
 <em>Importancia de variables</em><br>
 
 ## Demo
-- API: local (`uvicorn src.api.main:app --reload`)
-- Dashboard/Monitoring: local (`streamlit run src/visualization/dashboard.py`)
+- API: local (`make api`)
+- Dashboard: local (`make dashboard`)
+
+## Quickstart (local)
+```bash
+make install
+make train
+make api
+make dashboard
+make monitor
+```
 
 ## How to run
 - Install:
-  - `pip install -r requirements.txt`
+  - `make install`
 - Run:
-  - `uvicorn src.api.main:app --reload`
-  - `streamlit run src/visualization/dashboard.py`
+  - `make api`
+  - `make dashboard`
 
 ## Repo structure
 - `src/` lógica de datos/features/modelo
-- `app/` API y/o dashboard
+- `src/api/` API FastAPI
+- `src/visualization/` dashboard
 - `tests/` pruebas (si aplica)
 - `reports/` figuras y resultados
 

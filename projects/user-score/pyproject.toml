@@ -1,0 +1,9 @@
+[project]
+name = "user-score-prediction"
+version = "0.1.0"
+description = "Batch user score prediction pipeline (portfolio)"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

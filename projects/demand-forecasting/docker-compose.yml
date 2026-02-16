@@ -1,0 +1,61 @@
+# Docker Compose configuration for Walmart Demand Forecasting API
+# Author: Ing. Daniel Varela Perez
+# Email: bedaniele0@gmail.com
+# Date: December 5, 2024
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: walmart-forecasting-api
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=INFO
+    volumes:
+      # Mount models directory for easy model updates
+      - ./models:/app/models:ro
+      # Mount logs directory
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - walmart-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2G
+        reservations:
+          cpus: '1.0'
+          memory: 1G
+
+  # Optional: Nginx reverse proxy
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: walmart-forecasting-nginx
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+  #     - ./nginx/ssl:/etc/nginx/ssl:ro
+  #   depends_on:
+  #     - api
+  #   restart: unless-stopped
+  #   networks:
+  #     - walmart-network
+
+networks:
+  walmart-network:
+    driver: bridge
+
+volumes:
+  logs:

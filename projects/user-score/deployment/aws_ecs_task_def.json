@@ -1,0 +1,20 @@
+{
+  "family": "user-score-batch",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "512",
+  "memory": "1024",
+  "taskRoleArn": "NO_DEFINIDO",
+  "executionRoleArn": "NO_DEFINIDO",
+  "containerDefinitions": [
+    {
+      "name": "user-score-batch",
+      "image": "NO_DEFINIDO",
+      "essential": true,
+      "environment": [
+        {"name": "ENV", "value": "prod"},
+        {"name": "STORAGE_MODE", "value": "s3"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+# ============================================================================
+# alerts_config.yaml - Configuración de Alertas Multi-Canal
+# ============================================================================
+# Configuración para Slack, Teams, Email y Webhooks
+#
+# Autor: Ing. Daniel Varela Perez
+# Email: bedaniele0@gmail.com
+# Metodología: DVP-PRO
+# ============================================================================
+
+# ====================
+# SLACK
+# ====================
+slack:
+  enabled: false
+  webhook_url: ""
+  channel: "#fraud-detection-alerts"
+  username: "Fraud Detection Bot"
+  icon_emoji: ":shield:"
+
+# ====================
+# MICROSOFT TEAMS
+# ====================
+teams:
+  enabled: false
+  webhook_url: ""
+
+# ====================
+# EMAIL (SMTP)
+# ====================
+email:
+  enabled: false
+  smtp_server: "smtp.gmail.com"
+  smtp_port: 587
+  smtp_username: ""
+  smtp_password: ""
+  from_email: "alerts@yourcompany.com"
+  to_email: "bedaniele0@gmail.com"
+  use_tls: true
+
+# ====================
+# ALERT RULES
+# ====================
+alert_rules:
+  # Data Drift
+  data_drift:
+    enabled: true
+    threshold: 0.2  # PSI threshold
+    severity: "warning"
+    channels:
+      - slack
+      - email
+    check_interval_hours: 24
+
+  # Model Performance Degradation
+  performance_degradation:
+    enabled: true
+    metrics:
+      precision:
+        min_threshold: 0.85
+      recall:
+        min_threshold: 0.70
+      f1_score:
+        min_threshold: 0.75
+    channels:
+      - slack
+      - teams
+      - email
+    check_interval_hours: 12
+
+  # Fraud Rate Spike
+  fraud_rate_spike:
+    enabled: true
+    threshold_percentage: 30  # 30% increase
+    window_hours: 24
+    channels:
+      - slack
+      - teams
+    check_interval_hours: 6
+
+  # API Errors
+  api_errors:
+    enabled: true
+    error_rate_threshold: 0.05  # 5% error rate
+    channels:
+      - slack
+    check_interval_minutes: 15
+
+# ====================
+# RATE LIMITING
+# ====================
+rate_limiting:
+  enabled: true
+  max_alerts_per_hour: 10
+  max_alerts_per_day: 50
+  duplicate_suppression_minutes: 60
+
+# ====================
+# TEMPLATES
+# ====================
+templates:
+  data_drift:
+    title: "Data Drift Detected: {feature_name}"
+    message: |
+      Drift score ({drift_score:.4f}) exceeds threshold ({threshold:.4f}).
+      Feature: {feature_name}
+
+      Action Required:
+      - Investigate distribution changes
+      - Consider model retraining
+
+  fraud_spike:
+    title: "Fraud Rate Spike Detected"
+    message: |
+      Current fraud rate ({current_rate:.2%}) is {increase:.1f}% higher
+      than expected ({expected_rate:.2%}).
+
+      Action Required:
+      - Investigate recent transactions
+      - Check for attack patterns

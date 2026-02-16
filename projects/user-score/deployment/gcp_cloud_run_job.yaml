@@ -1,0 +1,14 @@
+apiVersion: run.googleapis.com/v1
+kind: Job
+metadata:
+  name: user-score-batch
+spec:
+  template:
+    template:
+      containers:
+      - image: gcr.io/PROJECT_ID/user-score-batch:latest
+        env:
+        - name: ENV
+          value: prod
+      maxRetries: 1
+      timeoutSeconds: 1800

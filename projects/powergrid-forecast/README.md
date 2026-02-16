@@ -9,7 +9,7 @@
 Pronosticar demanda eléctrica para apoyar planeación operativa y reducir riesgo de sobre/sub-contratación. El reto central es manejar estacionalidad, patrones horarios y evitar leakage temporal.
 
 ## Data
-- Source: dataset demo de consumo energetico
+- Source: dataset demo de consumo energético
 - Size: train 1,000 filas, test 100 filas
 
 ## Approach
@@ -21,11 +21,14 @@ Pronosticar demanda eléctrica para apoyar planeación operativa y reducir riesg
 - Metric(s): MAPE 5.10%, R2 0.9555, RMSE 400.84 kW
 - Key insight: La evaluación temporal (backtesting) es clave; un split aleatorio puede inflar métricas y no generaliza.
 
+
+**Nota:** Proyecto de referencia (demo) enfocado en resultados. Código completo disponible a solicitud.
+
 ## Impact
-- Objetivo de negocio: reducir riesgo o mejorar decision operativa
-- Solucion: pipeline end-to-end con modelo + API + dashboard
-- Metrica clave: ver seccion Results
-- ROI demo: ver seccion Results si aplica
+- Objetivo de negocio: reducir riesgo o mejorar decisión operativa
+- Solución: pipeline end-to-end con modelo + API + dashboard
+- Métrica clave: ver sección Results
+- ROI demo: ver sección Results si aplica
 
 ## Dashboard
 <img src="../../assets/images/energy-dashboard-1.png" style="width:100%; max-width:100%; height:auto;" alt="Energy dashboard 1">
@@ -43,12 +46,6 @@ Pronosticar demanda eléctrica para apoyar planeación operativa y reducir riesg
 - Run:
   - `python3 src/run_api.py`
   - `streamlit run src/dashboard.py`
-
-## Repo structure
-- `src/` lógica de datos/features/modelo
-- `app/` API y/o dashboard
-- `tests/` pruebas (si aplica)
-- `reports/` figuras y resultados
 
 ## Next steps
 - Intervalos de predicción (P10/P50/P90) para decisiones bajo incertidumbre.

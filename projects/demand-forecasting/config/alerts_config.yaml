@@ -1,0 +1,168 @@
+# ============================================================================
+# alerts_config.yaml - Configuración del Sistema de Alertas
+# ============================================================================
+# Configuración para alertas multi-canal (Slack, Teams, Email, Webhook)
+#
+# Autor: Ing. Daniel Varela Perez
+# Email: bedaniele0@gmail.com
+# Tel: +52 55 4189 3428
+# Metodología: DVP-PRO
+# ============================================================================
+
+# Canales habilitados
+enabled_channels:
+  slack: true
+  teams: true
+  email: false  # Configurar credenciales SMTP primero
+  webhook: false
+
+# Umbrales de métricas para alertas
+performance_thresholds:
+  mae:
+    warning: 1.0
+    critical: 1.5
+  rmse:
+    warning: 2.5
+    critical: 5.0
+  mape:
+    warning: 40.0
+    critical: 60.0
+  wmape:
+    warning: 30.0
+    critical: 50.0
+  forecast_accuracy:
+    warning: 0.70  # Menos de 70% = warning
+    critical: 0.50  # Menos de 50% = critical
+
+# Umbrales de data drift
+drift_thresholds:
+  global_drift_score:
+    warning: 0.10
+    critical: 0.25
+  feature_drift_score:
+    warning: 0.15
+    critical: 0.30
+  max_features_with_drift: 10  # Máximo de features con drift antes de alerta
+
+# Configuración de notificaciones
+notification_rules:
+  # Entrenamientos
+  training_complete:
+    enabled: true
+    channels: ['slack', 'teams']
+    level: INFO
+
+  training_failed:
+    enabled: true
+    channels: ['slack', 'teams', 'email']
+    level: ERROR
+
+  # Predicciones
+  prediction_batch_complete:
+    enabled: true
+    channels: ['slack']
+    level: INFO
+
+  prediction_error:
+    enabled: true
+    channels: ['slack', 'teams', 'email']
+    level: ERROR
+
+  # Performance
+  performance_degradation:
+    enabled: true
+    channels: ['slack', 'teams', 'email']
+    level: WARNING
+
+  performance_critical:
+    enabled: true
+    channels: ['slack', 'teams', 'email']
+    level: CRITICAL
+
+  # Data Drift
+  drift_detected:
+    enabled: true
+    channels: ['slack', 'teams']
+    level: WARNING
+
+  drift_critical:
+    enabled: true
+    channels: ['slack', 'teams', 'email']
+    level: CRITICAL
+
+  # Sistema
+  system_error:
+    enabled: true
+    channels: ['slack', 'teams', 'email']
+    level: ERROR
+
+  daily_summary:
+    enabled: true
+    channels: ['slack']
+    level: INFO
+    schedule: "0 8 * * *"  # 8:00 AM diario (cron format)
+
+# Configuración de rate limiting
+rate_limiting:
+  enabled: true
+  max_alerts_per_hour: 10
+  cooldown_minutes: 15  # Tiempo mínimo entre alertas del mismo tipo
+
+# Templates de mensajes
+message_templates:
+  training_complete: |
+    ✅ Entrenamiento completado exitosamente
+    Modelo: {model_name}
+    MAE: {mae:.4f}
+    RMSE: {rmse:.4f}
+    WMAPE: {wmape:.2f}%
+
+  performance_degradation: |
+    ⚠️ Degradación de performance detectada
+    Violaciones: {violations}
+    Revisar modelo y datos de entrada
+
+  drift_detected: |
+    🔍 Data drift detectado
+    Drift Score: {drift_score:.4f}
+    Features afectadas: {n_features}
+    Considerar re-entrenamiento
+
+  prediction_batch: |
+    📊 Batch de predicciones generado
+    Total predicciones: {total:,}
+    Demanda total: {demand:,.0f} unidades
+    Timestamp: {timestamp}
+
+# Configuración de escalamiento
+escalation:
+  enabled: true
+  rules:
+    - name: "Performance crítica persistente"
+      condition: "critical alerts >= 3 in 1 hour"
+      action: "notify_email"
+      recipients: ["bedaniele0@gmail.com"]
+
+    - name: "Drift crítico persistente"
+      condition: "drift_critical >= 2 in 6 hours"
+      action: "notify_email"
+      recipients: ["bedaniele0@gmail.com"]
+
+# Configuración de logging de alertas
+alert_logging:
+  enabled: true
+  log_file: "logs/alerts.log"
+  retention_days: 30
+  include_metadata: true
+
+# Retry policy
+retry_policy:
+  enabled: true
+  max_retries: 3
+  retry_delay_seconds: 5
+  exponential_backoff: true
+
+# Configuración de pruebas
+testing:
+  test_mode: false  # Si true, agrega [TEST] al título
+  test_channels: ['slack']  # Solo usar estos canales en modo test

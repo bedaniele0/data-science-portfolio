@@ -1,0 +1,3 @@
+rows_total: 777
+rows_train: 621
+rows_test: 156

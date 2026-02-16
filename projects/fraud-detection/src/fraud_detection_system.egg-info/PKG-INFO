@@ -1,0 +1,139 @@
+Metadata-Version: 2.4
+Name: fraud-detection-system
+Version: 1.0.0
+Summary: Fraud Detection System using Random Forest and Real-time Monitoring
+Home-page: https://github.com/danielvarela/fraud-detection-system
+Author: Ing. Daniel Varela Perez
+Author-email: "Ing. Daniel Varela Perez" <bedaniele0@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/danielvarela/fraud-detection-system
+Project-URL: Documentation, https://github.com/danielvarela/fraud-detection-system/blob/main/README.md
+Project-URL: Repository, https://github.com/danielvarela/fraud-detection-system
+Project-URL: Bug Tracker, https://github.com/danielvarela/fraud-detection-system/issues
+Keywords: fraud-detection,machine-learning,random-forest,streamlit,fastapi,mlops,dvp-pro
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# 💳 Sistema Inteligente de Detección de Fraude Financiero
+**Autor:** Ing. Daniel Varela Pérez  
+📧 bedaniele0@gmail.com | 📱 +52 55 4189 3428  
+**Metodología:** DVP-PRO
+
+[![Python](https://img.shields.io/badge/Python-3.13+-blue.svg)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green.svg)](https://fastapi.tiangolo.com)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.38+-red.svg)](https://streamlit.io)
+[![Tests](https://img.shields.io/badge/Tests-34%2F34-success.svg)](#)
+[![Status](https://img.shields.io/badge/Status-E2E%20Ready-success.svg)](#)
+
+## 🎯 Objetivo General
+Sistema de detección de fraude con pipeline ML reproducible, API REST protegida (auth), dashboard y monitoreo de referencia, alineado a DVP-PRO.
+
+## ✨ Características
+
+- 🤖 **ML**: Random Forest optimizado, threshold ajustable, artefactos versionados (`models/`).
+- 🛠️ **CLI DVP-PRO**: `fraud-train`, `fraud-evaluate`, `fraud-predict`, `fraud-monitor`.
+- 🌐 **API REST**: FastAPI protegida con autenticación; endpoints de predicción y gestión de modelo.
+- 📊 **Dashboard**: Streamlit para predicción individual y análisis batch.
+- 🧪 **Pruebas**: `pytest` 34/34 en verde (API, datos, modelo).
+- 📈 **Monitoreo (demo)**: Prometheus/Grafana vía `docker-compose.monitoring.yml`.
+
+## ⚙️ Estructura (resumen)
+```
+fraud_detection/
+├── api/                  # FastAPI (predicciones, modelo)
+├── dashboard/            # Streamlit
+├── src/models/           # CLIs de train/predict/evaluate
+├── src/monitoring/       # Monitoreo básico
+├── data/processed/       # Parquets limpios + metadata
+├── models/               # Artefactos del modelo
+├── tests/                # Suite pytest
+└── docs/                 # Documentación DVP-PRO
+```
+
+## 🚀 Quick Start (DVP-PRO)
+
+### Instalación
+```bash
+git clone https://github.com/tu-usuario/fraud_detection.git
+cd fraud_detection
+pip install -r requirements.txt
+pip install -e .
+```
+
+### Ejecución
+1) **Pipeline ML (CLI)**
+```bash
+fraud-train --train-path data/processed/train_clean.parquet/part.0.parquet \
+            --val-path data/processed/validation_clean.parquet
+fraud-evaluate --test-path data/processed/test_clean.parquet
+fraud-predict --input-path data/processed/test_clean.parquet \
+              --output-path reports/predictions/predicciones.csv
+```
+
+2) **API REST (con auth)**
+```bash
+fraud-api
+# o
+uvicorn api.main:app --reload
+```
+Endpoints principales:
+- `POST /api/v1/predict` — predicción individual
+- `POST /api/v1/predict/batch` — batch (≤1000)
+- `GET /api/v1/model/info` — info del modelo
+- `PUT /api/v1/model/threshold?new_threshold=0.6` — actualizar threshold  
+Docs: http://localhost:8000/docs
+
+Auth rápida (token JWT simplificado):
+```bash
+curl -X POST "http://localhost:8000/token" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "username=admin&password=admin123"
+```
+
+3) **Dashboard (Streamlit)**
+```bash
+fraud-dashboard
+# o
+streamlit run dashboard/fraud_detection_dashboard.py
+```
+
+4) **Monitoring (demo)**
+```bash
+docker-compose -f docker-compose.monitoring.yml up -d
+```
+
+### Testing
+```bash
+pytest
+```
+
+## 📊 Módulos del Sistema
+- 🔍 Predicción individual  
+- 📂 Análisis por lote  
+- 📈 Métricas en tiempo real  
+- 📊 Métricas acumuladas  
+
+## ✅ Estado del Proyecto (DVP-PRO)
+- ✅ Datos procesados disponibles (`data/processed/…`)
+- ✅ Modelo y threshold versionados (`models/…`)
+- ✅ API REST y dashboard operativos en modo demo (sin auth)
+- ✅ Pruebas E2E: 34/34 en verde (`pytest`)
+- ✅ Stack de monitoreo de referencia (Prom/Grafana)
+- ⚠️ Warning menor: si se cargan modelos antiguos puede verse un aviso de feature names en sklearn; re-entrenar/serializar en este entorno lo elimina.
+
+## 📬 Contacto Profesional
+**Ing. Daniel Varela Pérez**  
+📧 bedaniele0@gmail.com  
+📱 +52 55 4189 3428

@@ -1,0 +1,57 @@
+# Configuraciones específicas por entorno
+# Autor: Ing. Daniel Varela Perez
+# Email: bedaniele0@gmail.com | Tel: +52 55 4189 3428
+
+development:
+  debug: true
+  log_level: "DEBUG"
+  database:
+    url: "sqlite:///dev_fraud_detection.db"
+    echo_sql: true
+
+  ml_config:
+    use_sample_data: true
+    sample_size: 10000
+    model_cache: true
+
+  performance:
+    n_jobs: 2  # Conservador para desarrollo
+    memory_limit_gb: 4
+
+testing:
+  debug: false
+  log_level: "INFO"
+  database:
+    url: "sqlite:///:memory:"  # Base de datos en memoria
+    echo_sql: false
+
+  ml_config:
+    use_sample_data: true
+    sample_size: 1000
+    model_cache: false
+
+  performance:
+    n_jobs: 1
+    memory_limit_gb: 2
+
+production:
+  debug: false
+  log_level: "WARNING"
+  database:
+    url: "postgresql://user:pass@localhost/fraud_detection"
+    echo_sql: false
+    pool_size: 20
+
+  ml_config:
+    use_sample_data: false
+    model_cache: true
+    enable_monitoring: true
+
+  performance:
+    n_jobs: -1  # Todos los cores
+    memory_limit_gb: 16
+
+  security:
+    enable_encryption: true
+    audit_logs: true
+    rate_limiting: true

@@ -1,0 +1,154 @@
+# ============================================================================
+# alert_rules.yml - Prometheus Alert Rules para Fraud Detection
+# ============================================================================
+# Reglas de alertas para el sistema de detección de fraude
+#
+# Autor: Ing. Daniel Varela Perez
+# Email: bedaniele0@gmail.com
+# Metodología: DVP-PRO
+# ============================================================================
+
+groups:
+  - name: fraud_detection_alerts
+    interval: 30s
+    rules:
+      # ======================================================================
+      # High Fraud Rate Alert
+      # ======================================================================
+      - alert: HighFraudRate
+        expr: fraud_detection_fraud_rate > 0.01
+        for: 5m
+        labels:
+          severity: critical
+          component: model
+        annotations:
+          summary: "High fraud rate detected"
+          description: "Fraud rate is {{ $value | humanizePercentage }}, exceeding 1% threshold"
+
+      # ======================================================================
+      # Data Drift Alert
+      # ======================================================================
+      - alert: DataDriftDetected
+        expr: fraud_detection_drift_psi_score > 0.2
+        for: 10m
+        labels:
+          severity: warning
+          component: data
+        annotations:
+          summary: "Data drift detected on {{ $labels.feature }}"
+          description: "PSI score is {{ $value }}, exceeding 0.2 threshold"
+
+      # ======================================================================
+      # Model Performance Degradation
+      # ======================================================================
+      - alert: LowPrecision
+        expr: fraud_detection_model_precision < 0.85
+        for: 15m
+        labels:
+          severity: warning
+          component: model
+        annotations:
+          summary: "Model precision below threshold"
+          description: "Precision is {{ $value | humanizePercentage }}, below 85% threshold"
+
+      - alert: LowRecall
+        expr: fraud_detection_model_recall < 0.70
+        for: 15m
+        labels:
+          severity: warning
+          component: model
+        annotations:
+          summary: "Model recall below threshold"
+          description: "Recall is {{ $value | humanizePercentage }}, below 70% threshold"
+
+      # ======================================================================
+      # API Performance Alerts
+      # ======================================================================
+      - alert: HighAPILatency
+        expr: histogram_quantile(0.95, rate(fraud_detection_api_latency_seconds_bucket[5m])) > 2
+        for: 5m
+        labels:
+          severity: warning
+          component: api
+        annotations:
+          summary: "High API latency (p95)"
+          description: "95th percentile latency is {{ $value }}s, exceeding 2s threshold"
+
+      - alert: HighAPIErrorRate
+        expr: rate(fraud_detection_api_errors_total[5m]) > 0.05
+        for: 5m
+        labels:
+          severity: critical
+          component: api
+        annotations:
+          summary: "High API error rate"
+          description: "API error rate is {{ $value | humanizePercentage }}, exceeding 5% threshold"
+
+      # ======================================================================
+      # System Health Alerts
+      # ======================================================================
+      - alert: APIDown
+        expr: up{job="fraud_detection_api"} == 0
+        for: 1m
+        labels:
+          severity: critical
+          component: api
+        annotations:
+          summary: "Fraud Detection API is down"
+          description: "The API has been unreachable for 1 minute"
+
+      - alert: HighMemoryUsage
+        expr: process_resident_memory_bytes{job="fraud_detection_api"} > 2e9
+        for: 5m
+        labels:
+          severity: warning
+          component: system
+        annotations:
+          summary: "High memory usage"
+          description: "API is using {{ $value | humanize }}B of memory"
+
+      # ======================================================================
+      # False Positive/Negative Alerts
+      # ======================================================================
+      - alert: HighFalsePositiveRate
+        expr: fraud_detection_false_positive_rate > 0.05
+        for: 10m
+        labels:
+          severity: warning
+          component: model
+        annotations:
+          summary: "High false positive rate"
+          description: "False positive rate is {{ $value | humanizePercentage }}, exceeding 5% threshold"
+
+      - alert: HighFalseNegativeRate
+        expr: fraud_detection_false_negative_rate > 0.2
+        for: 10m
+        labels:
+          severity: critical
+          component: model
+        annotations:
+          summary: "High false negative rate"
+          description: "False negative rate is {{ $value | humanizePercentage }}, exceeding 20% threshold"
+
+      # ======================================================================
+      # Volume Alerts
+      # ======================================================================
+      - alert: PredictionVolumeSpike
+        expr: rate(fraud_detection_predictions_total[5m]) > 100
+        for: 5m
+        labels:
+          severity: info
+          component: api
+        annotations:
+          summary: "High prediction volume"
+          description: "Prediction rate is {{ $value }}/s, unusually high traffic"
+
+      - alert: LowPredictionVolume
+        expr: rate(fraud_detection_predictions_total[15m]) < 0.1
+        for: 30m
+        labels:
+          severity: warning
+          component: api
+        annotations:
+          summary: "Low prediction volume"
+          description: "Very low prediction volume, possible integration issue"

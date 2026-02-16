@@ -23,10 +23,10 @@ Detectar fraude en transacciones con foco en minimizar falsos negativos sin disp
   - ROI demo (supuestos conservadores): ahorro potencial ~$25.9M/año, conservador ~$7.8M/año
 
 ## Impact
-- Objetivo de negocio: reducir riesgo o mejorar decision operativa
-- Solucion: pipeline end-to-end con modelo + API + dashboard
-- Metrica clave: ver seccion Results
-- ROI demo: ver seccion Results si aplica
+- Objetivo de negocio: reducir riesgo o mejorar decisión operativa
+- Solución: pipeline end-to-end con modelo + API + dashboard
+- Métrica clave: ver sección Results
+- ROI demo: ver sección Results si aplica
 
 ## Dashboard
 <img src="../../assets/images/fraud-dashboard-1.png" style="width:100%; max-width:100%; height:auto;" alt="Fraud dashboard 1">
@@ -36,19 +36,28 @@ Detectar fraude en transacciones con foco en minimizar falsos negativos sin disp
 
 ## Demo
 - Live (Streamlit): https://bedaniele0-fraud-dete-dashboardfraud-detection-dashboard-lvseck.streamlit.app/
-- API: local (`fraud-api` o `uvicorn api.main:app --reload`)
-- Dashboard: local (`fraud-dashboard`)
+- API: local (`make api`)
+- Dashboard: local (`make dashboard`)
+
+## Quickstart (local)
+```bash
+make install
+make api
+make dashboard
+make monitor
+```
 
 ## How to run
 - Install:
-  - `pip install -r requirements.txt`
+  - `make install`
 - Run:
-  - `fraud-api`
-  - `fraud-dashboard`
+  - `make api`
+  - `make dashboard`
 
 ## Repo structure
 - `src/` lógica de datos/features/modelo
-- `app/` API y/o dashboard
+- `api/` API FastAPI
+- `dashboard/` app Streamlit
 - `tests/` pruebas (si aplica)
 - `reports/` figuras y resultados
 

@@ -1,0 +1,20 @@
+{
+  "Name": "user-score-batch-daily",
+  "ScheduleExpression": "cron(0 2 * * ? *)",
+  "FlexibleTimeWindow": {"Mode": "OFF"},
+  "Target": {
+    "Arn": "arn:aws:ecs:NO_DEFINIDO:NO_DEFINIDO:cluster/NO_DEFINIDO",
+    "RoleArn": "arn:aws:iam::NO_DEFINIDO:role/NO_DEFINIDO",
+    "EcsParameters": {
+      "TaskDefinitionArn": "arn:aws:ecs:NO_DEFINIDO:NO_DEFINIDO:task-definition/user-score-batch",
+      "LaunchType": "FARGATE",
+      "NetworkConfiguration": {
+        "awsvpcConfiguration": {
+          "Subnets": ["subnet-xxxxxxxx"],
+          "SecurityGroups": ["sg-xxxxxxxx"],
+          "AssignPublicIp": "ENABLED"
+        }
+      }
+    }
+  }
+}

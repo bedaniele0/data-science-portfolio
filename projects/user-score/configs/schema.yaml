@@ -1,0 +1,56 @@
+input:
+  required:
+    - id
+    - title
+    - platform
+    - date
+    - meta_score
+    - esrb_rating
+    - developers
+    - genres
+  dtypes:
+    id: string
+    title: string
+    platform: string
+    date: string
+    meta_score: float
+    esrb_rating: string
+    developers: string
+    genres: string
+
+predictions:
+  required:
+    - id
+    - prediction_date
+    - predicted_user_score
+    - model_version
+    - features_hash
+  dtypes:
+    id: string
+    prediction_date: string
+    predicted_user_score: float
+    model_version: string
+    features_hash: string
+
+actuals:
+  required:
+    - id
+    - event_date
+    - real_user_score
+  dtypes:
+    id: string
+    event_date: string
+    real_user_score: float
+
+training:
+  required:
+    - title
+    - platform
+    - date
+    - meta_score
+    - esrb_rating
+    - developers
+    - genres
+    - user_score
+  dtypes:
+    user_score: float

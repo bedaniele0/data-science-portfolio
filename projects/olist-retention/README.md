@@ -3,7 +3,7 @@
 **One-liner:** Analítica end-to-end de retención para e-commerce (cohortes, RFM y CLV) con entrega en dashboard y/o API para toma de decisiones.  
 **Stack:** Python, pandas, Streamlit, FastAPI.  
 **Deliverable:** Reporte analítico reproducible + Dashboard + API (demo).  
-**Results:** AUC 0.995, Precision 0.997, Recall 0.964 (post-hoc, demo).
+**Results:** AUC 99.50%, Precision 99.70%, Recall 96.40% (post-hoc, demo).
 
 ## Problem
 Entender y mejorar la retención de clientes en un e-commerce: identificar patrones de recompra, segmentar clientes y priorizar acciones (CRM/promos) basadas en valor y probabilidad de retorno.
@@ -18,14 +18,17 @@ Entender y mejorar la retención de clientes en un e-commerce: identificar patro
 - Estimación de **CLV** (aprox.) y/o priorización de clientes de alto valor para acciones de retención.
 
 ## Results
-- Metric(s): AUC 0.995, Precision 0.997, Recall 0.964 (post-hoc)
+- Metric(s): AUC 99.50%, Precision 99.70%, Recall 96.40% (post-hoc)
 - Key insight: Los segmentos RFM permiten mover acciones de “masivas” a “priorizadas” (alto valor vs riesgo de churn).
 
+
+**Nota:** Proyecto de referencia (demo) enfocado en resultados. Código completo disponible a solicitud.
+
 ## Impact
-- Objetivo de negocio: reducir riesgo o mejorar decision operativa
-- Solucion: pipeline end-to-end con modelo + API + dashboard
-- Metrica clave: ver seccion Results
-- ROI demo: ver seccion Results si aplica
+- Objetivo de negocio: reducir riesgo o mejorar decisión operativa
+- Solución: pipeline end-to-end con modelo + API + dashboard
+- Métrica clave: ver sección Results
+- ROI demo: ver sección Results si aplica
 
 ## Dashboard
 <img src="../../assets/images/olist-dashboard-1.png" style="width:100%; max-width:100%; height:auto;" alt="Olist retention dashboard 1">
@@ -43,10 +46,6 @@ Entender y mejorar la retención de clientes en un e-commerce: identificar patro
 - Run:
   - `olist-dashboard`
   - `olist-api`
-
-## Repo structure
-- `src/` analytics y features
-- `api/` endpoints y auth demo
 
 ## Next steps
 - Agregar métricas de producto (repeat purchase window, time-to-second-purchase).

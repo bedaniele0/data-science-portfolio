@@ -1,0 +1,33 @@
+project:
+  name: proyecto_user_score_ds
+  model_version: v1.0
+
+paths:
+  train_data: s3://NO_DEFINIDO/user_score/train/data.csv
+  prod_input: s3://NO_DEFINIDO/user_score/prod/input/dt=YYYY-MM-DD/input.csv
+  prod_predictions: s3://NO_DEFINIDO/user_score/prod/predictions/dt=YYYY-MM-DD/predictions.csv
+  prod_actuals: s3://NO_DEFINIDO/user_score/prod/actuals/dt=YYYY-MM-DD/actuals.csv
+  model_artifact: s3://NO_DEFINIDO/user_score/models/user_score_model.pkl
+  metrics_output: s3://NO_DEFINIDO/user_score/prod/monitoring/dt=YYYY-MM-DD/performance_metrics.csv
+  drift_output: s3://NO_DEFINIDO/user_score/prod/monitoring/dt=YYYY-MM-DD/drift_report.csv
+
+paths_local:
+  train_data: data/data.csv
+  prod_input: data/prod/input.csv
+  prod_predictions: data/prod/predictions.csv
+  prod_actuals: data/prod/actuals.csv
+  model_artifact: models/user_score_model.pkl
+  metrics_output: reports/prod/performance_metrics.csv
+  drift_output: reports/prod/drift_report.csv
+
+batch:
+  schedule: daily
+  sla_minutes: 30
+
+monitoring:
+  psi_warning: 0.20
+  psi_critical: 0.30
+  r2_warning_drop: 0.05
+  r2_critical_drop: 0.10
+  mae_warning_increase: 0.10
+  mae_critical_increase: 0.20
