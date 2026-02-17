@@ -10,7 +10,7 @@ Portafolio para rol **Senior ML Engineer / Applied Scientist (Production ML)**: 
 - Tel: +52 55 4189 3428
 - GitHub: https://github.com/bedaniele0
 - LinkedIn: https://linkedin.com/in/daniel-varela-perez
-- CV 1 página: [ES MD](cv/CV_Daniel_Varela_Perez_1P_ES.md) | [EN MD](cv/CV_Daniel_Varela_Perez_1P_EN.md) | [ES PDF ATS](cv/CV_Daniel_Varela_Perez_1P_ES_ATS.pdf) | [EN PDF ATS](cv/CV_Daniel_Varela_Perez_1P_EN_ATS.pdf)
+- CV 1 página: [ES MD](cv/CV_Daniel_Varela_Perez_1P_ES.md) | [EN MD](cv/CV_Daniel_Varela_Perez_1P_EN.md) | [EN PDF ATS](cv/CV_Daniel_Varela_Perez_1P_EN_ATS.pdf)
 
 ## Perfil
 Senior ML Engineer / Applied Scientist (Production ML) con enfoque end-to-end: diseño, validación, despliegue (API/batch) y monitoreo operacional (drift + performance). Foco en confiabilidad, trazabilidad y handoffs claros (runbooks/checklists). Los dominios (churn/fraude/riesgo/forecasting) se usan solo como contexto para demostrar capacidades de operación.
