@@ -32,4 +32,4 @@ Continuous learning in Data Science and Machine Learning (Udemy and self-study).
 
 LANGUAGES
 Spanish: Native
-English: Technical (documentation; conference support with real-time translation tools)
+English: Technical (reading/writing; for calls I use AI Phone with real-time translation)

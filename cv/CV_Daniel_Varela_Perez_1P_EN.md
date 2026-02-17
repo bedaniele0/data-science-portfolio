@@ -57,7 +57,7 @@ FastAPI, Streamlit, MLflow, pytest, Git, Docker.
 
 ## Education and Languages
 - Training: continuous learning in applied ML and ML systems (evidence on GitHub).
-- Spanish: Native | English: Technical (documentation reading; conference support with real-time translation tools).
+- Spanish: Native | English: Technical (reading/writing; for calls I use AI Phone with real-time translation).
 
 ## Links
 - Portfolio: `README.md`

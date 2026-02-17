@@ -57,7 +57,7 @@ FastAPI, Streamlit, MLflow, pytest, Git, Docker.
 
 ## Educación e Idiomas
 - Formación: aprendizaje continuo en ML aplicado y sistemas de ML (evidencia en GitHub).
-- Español: Nativo | Inglés: Técnico (lectura de documentación; conferencias con apoyo de traducción en tiempo real).
+- Español: Nativo | Inglés: Técnico (lectura/escritura; en llamadas uso AI Phone con traducción en tiempo real).
 
 ## Enlaces
 - Portafolio: `README.md`
