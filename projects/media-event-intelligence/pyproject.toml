@@ -48,3 +48,6 @@ filterwarnings = [
 
 [tool.ruff.lint.per-file-ignores]
 "src/serving/api.py" = ["B008"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]
