@@ -18,8 +18,8 @@ make dashboard
 Build both images:
 
 ```zsh
-docker build --target api -t media-event-intelligence-api:local .
-docker build --target dashboard -t media-event-intelligence-dashboard:local .
+docker build --target api -t news-event-observatory-api:local .
+docker build --target dashboard -t news-event-observatory-dashboard:local .
 ```
 
 Run with Docker Compose:
@@ -42,7 +42,7 @@ GitHub Actions runs:
 - Docker build for API and dashboard targets
 - `docker compose config`
 
-In this portfolio repository, the active workflow is `.github/workflows/media-event-intelligence.yml` at the repository root. If this project is extracted into its own repository, keep the same validation contract in `.github/workflows/ci.yml`.
+In this portfolio repository, the active workflow is `.github/workflows/news-event-observatory.yml` at the repository root. If this project is extracted into its own repository, keep the same validation contract in `.github/workflows/ci.yml`.
 
 The project should not merge changes unless `make validate` is green locally and in CI.
 

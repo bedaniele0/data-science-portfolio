@@ -8,7 +8,7 @@ import streamlit as st
 
 from src.dashboard.view_model import build_dashboard_snapshot, create_store, frame, kpi_summary, load_dashboard_config
 
-st.set_page_config(page_title="Media Event Intelligence", layout="wide")
+st.set_page_config(page_title="News Event Observatory", layout="wide")
 
 st.markdown(
     """
@@ -48,7 +48,7 @@ snapshot = build_dashboard_snapshot("configs/dashboard.yaml")
 kpis = kpi_summary(snapshot)
 store = create_store(config)
 
-st.title(str(dashboard_cfg.get("title", "Media Event Intelligence")))
+st.title(str(dashboard_cfg.get("title", "News Event Observatory")))
 
 def render_kpi(label: str, value: int) -> None:
     st.markdown(

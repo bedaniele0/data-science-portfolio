@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Dashboard preview for Media Event Intelligence">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Dashboard preview for News Event Observatory">
   <rect width="1200" height="720" fill="#eef2f7"/>
   <rect x="42" y="36" width="1116" height="648" rx="12" fill="#ffffff" stroke="#d8dee8"/>
-  <text x="78" y="92" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700" fill="#172033">Media Event Intelligence</text>
+  <text x="78" y="92" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700" fill="#172033">News Event Observatory</text>
   <text x="78" y="122" font-family="Inter, Arial, sans-serif" font-size="15" fill="#65748a">Executive review dashboard over validated SQLite event data</text>
   <g font-family="Inter, Arial, sans-serif">
     <g transform="translate(78 158)"><rect width="240" height="92" rx="8" fill="#f8fafc" stroke="#d8dee8"/><text x="20" y="34" font-size="14" fill="#65748a">Articulos</text><text x="20" y="68" font-size="31" font-weight="700" fill="#172033">668</text></g>

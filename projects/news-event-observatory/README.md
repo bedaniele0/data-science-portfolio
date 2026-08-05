@@ -1,4 +1,4 @@
-# Media Event Intelligence
+# News Event Observatory
 
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![FastAPI](https://img.shields.io/badge/API-FastAPI-009688)
@@ -18,7 +18,7 @@ Sigue estos pasos desde una terminal.
 ### 1. Entrar a la carpeta del proyecto
 
 ```zsh
-cd /Users/danielevarella/Developer/data-science/media-event-intelligence
+cd /Users/danielevarella/Developer/data-science/news-event-observatory
 ```
 
 ### 2. Instalar dependencias
@@ -115,13 +115,13 @@ Dashboard: http://127.0.0.1:8501
 Construir imagen de API:
 
 ```zsh
-docker build --target api -t media-event-intelligence-api:local .
+docker build --target api -t news-event-observatory-api:local .
 ```
 
 Construir imagen de dashboard:
 
 ```zsh
-docker build --target dashboard -t media-event-intelligence-dashboard:local .
+docker build --target dashboard -t news-event-observatory-dashboard:local .
 ```
 
 ## Que Veras En El Dashboard
@@ -290,7 +290,7 @@ GitHub Actions incluye:
 - build Docker para API y dashboard;
 - validacion de `docker compose config`.
 
-En este portafolio el workflow activo vive en `.github/workflows/media-event-intelligence.yml` en la raiz del repositorio. Si el proyecto se publica como repo independiente, puede usar `.github/workflows/ci.yml` con el mismo contrato de validacion.
+En este portafolio el workflow activo vive en `.github/workflows/news-event-observatory.yml` en la raiz del repositorio. Si el proyecto se publica como repo independiente, puede usar `.github/workflows/ci.yml` con el mismo contrato de validacion.
 
 ## Ecosistema E2E De Ciencia De Datos
 

@@ -4,6 +4,6 @@ Operational deployment assets live in this project directory and in the portfoli
 
 - `Dockerfile`: multi-target image for `api` and `dashboard`.
 - `docker-compose.yml`: local two-service stack.
-- repository root `.github/workflows/media-event-intelligence.yml`: lint, E2E validation, Docker Compose validation, and Docker builds.
+- repository root `.github/workflows/news-event-observatory.yml`: lint, E2E validation, Docker Compose validation, and Docker builds.
 
 See `docs/deployment.md` for commands and expected service URLs.

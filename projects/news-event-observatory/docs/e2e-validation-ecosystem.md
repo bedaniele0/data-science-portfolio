@@ -104,8 +104,8 @@ uv sync --extra validation --extra dashboard
 uv run ruff check src tests scripts
 make validate
 docker compose config
-docker build --target api -t media-event-intelligence-api:local .
-docker build --target dashboard -t media-event-intelligence-dashboard:local .
+docker build --target api -t news-event-observatory-api:local .
+docker build --target dashboard -t news-event-observatory-dashboard:local .
 ```
 
 For deployed projects, add service smoke tests after build.

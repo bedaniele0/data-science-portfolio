@@ -7,7 +7,7 @@ Use this after the project has a GitHub remote.
 In this portfolio repository, CI/CD is handled by the root workflow:
 
 ```text
-.github/workflows/media-event-intelligence.yml
+.github/workflows/news-event-observatory.yml
 ```
 
 The workflow runs lint, `make validate`, `docker compose config`, and Docker image builds for API and dashboard.
@@ -44,7 +44,7 @@ Recommended settings:
 
 Recommended required checks:
 
-- `Media Event Intelligence E2E / validate`
+- `News Event Observatory E2E / validate`
 
 For ML projects, do not require release automation until the model or package is
 actually versioned for external use.

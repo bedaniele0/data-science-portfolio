@@ -1,5 +1,5 @@
 project:
-  name: media-event-intelligence
+  name: news-event-observatory
   language: es
   country: MX
   initial_domain: media_event_monitoring

@@ -79,7 +79,7 @@ REPORT_EXPECTATIONS = {
 
 CI_WORKFLOW_CANDIDATES = [
     ".github/workflows/ci.yml",
-    ".github/workflows/media-event-intelligence.yml",
+    ".github/workflows/news-event-observatory.yml",
 ]
 
 

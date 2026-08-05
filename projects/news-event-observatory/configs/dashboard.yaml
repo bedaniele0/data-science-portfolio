@@ -5,7 +5,7 @@ output:
   report_path: reports/dashboard_contract_report.json
 
 dashboard:
-  title: Media Event Intelligence
+  title: News Event Observatory
   default_event_limit: 50
   default_review_limit: 25
   default_media_limit: 10

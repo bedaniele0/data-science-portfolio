@@ -25,7 +25,7 @@ def load_store(config_path: Path | str = "configs/serving.yaml") -> EventStore:
 
 
 def create_app(config_path: Path | str = "configs/serving.yaml") -> FastAPI:
-    app = FastAPI(title="Media Event Intelligence API", version="0.1.0")
+    app = FastAPI(title="News Event Observatory API", version="0.1.0")
     store = load_store(config_path)
 
     def get_store() -> EventStore:

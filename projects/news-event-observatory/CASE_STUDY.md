@@ -1,4 +1,4 @@
-# Media Event Intelligence - Case Study
+# News Event Observatory - Case Study
 
 ## Problem
 

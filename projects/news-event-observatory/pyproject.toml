@@ -1,5 +1,5 @@
 [project]
-name = "media-event-intelligence"
+name = "news-event-observatory"
 version = "0.1.0"
 description = "Reproducible data science system for detecting and consolidating media events."
 readme = "README.md"

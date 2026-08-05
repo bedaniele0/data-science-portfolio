@@ -32,13 +32,13 @@ models/
 
 # Streamlit
 .streamlit/secrets.toml
-# Allow reproducible demo seed for Media Event Intelligence
-!projects/media-event-intelligence/data/
-!projects/media-event-intelligence/data/README.md
-!projects/media-event-intelligence/data/raw/
-!projects/media-event-intelligence/data/raw/demo/
-!projects/media-event-intelligence/data/raw/demo/google_news_sample_2026-02-16_2026-02-17.csv
-!projects/media-event-intelligence/data/labels/
-!projects/media-event-intelligence/data/labels/*.csv
-!projects/media-event-intelligence/src/models/
-!projects/media-event-intelligence/src/models/*.py
+# Allow reproducible demo seed and source model modules for News Event Observatory
+!projects/news-event-observatory/data/
+!projects/news-event-observatory/data/README.md
+!projects/news-event-observatory/data/raw/
+!projects/news-event-observatory/data/raw/demo/
+!projects/news-event-observatory/data/raw/demo/google_news_sample_2026-02-16_2026-02-17.csv
+!projects/news-event-observatory/data/labels/
+!projects/news-event-observatory/data/labels/*.csv
+!projects/news-event-observatory/src/models/
+!projects/news-event-observatory/src/models/*.py
