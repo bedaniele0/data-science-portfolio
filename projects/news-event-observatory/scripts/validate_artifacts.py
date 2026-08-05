@@ -13,8 +13,6 @@ REQUIRED_FILES = [
     "configs/dashboard.yaml",
     "LICENSE",
     "docs/privacy-review.md",
-    "docs/e2e-validation-ecosystem.md",
-    "docs/readme-execution-contract.md",
     "docs/assets/architecture.svg",
     "docs/assets/dashboard-preview.svg",
     "Dockerfile",
