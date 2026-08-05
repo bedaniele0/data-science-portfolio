@@ -66,9 +66,10 @@ Senior ML Engineer / Applied Scientist (Production ML) with end-to-end focus: de
 - `projects/olist-retention` — Retention | AUC 99.50% | Recall 96.40%
 - `projects/telco-churn` — Telco churn | AUC 83.20% | F1 62.40%
 - `projects/user-score` — Batch E2E | MAE on target | R2 to improve
+- `projects/news-event-observatory` — News event observatory | 668 normalized articles | 8 events | API + dashboard + E2E contracts
 
 <details>
-<summary>All Projects (10) - KPI Snapshot</summary>
+<summary>All Projects (11) - KPI Snapshot</summary>
 
 | Project | Type | KPI 1 | KPI 2 | KPI 3 |
 |---|---|---:|---:|---:|
@@ -82,6 +83,7 @@ Senior ML Engineer / Applied Scientist (Production ML) with end-to-end focus: de
 | `projects/olist-retention` | Classification | AUC 99.50% | Precision 99.70% | Recall 96.40% |
 | `projects/telco-churn` | Classification | AUC 83.20% | F1 62.40% | ROI 4.56x |
 | `projects/user-score` | Regression | MAE on target | R2 to improve | Batch E2E |
+| `projects/news-event-observatory` | NLP / Events | 668 articles | 8 events | Validated API + dashboard |
 
 Each project includes local demo commands and technical/executive documentation.
 

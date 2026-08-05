@@ -1,0 +1,11 @@
+project:
+  name: news-event-observatory
+  language: es
+  country: MX
+  initial_domain: media_event_monitoring
+  portfolio_positioning: reproducible data science system for media event detection
+
+mvp:
+  first_use_case: violence-related events from digital news
+  source_seed: public Google News metadata demo seed
+  database: sqlite

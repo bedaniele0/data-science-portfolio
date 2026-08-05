@@ -1,0 +1,17 @@
+input:
+  type: csv
+  path: data/raw/demo/google_news_sample_2026-02-16_2026-02-17.csv
+  source_name: demo_google_news_sample
+  query_from_search_url: true
+
+output:
+  normalized_articles_path: data/interim/normalized_articles.csv
+  report_path: reports/ingestion_report.json
+
+quality:
+  drop_placeholder_rows: true
+  drop_empty_title: true
+  deduplicate_by:
+    - url
+    - title
+    - media

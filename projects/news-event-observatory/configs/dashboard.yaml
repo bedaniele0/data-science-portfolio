@@ -1,0 +1,14 @@
+input:
+  database_path: data/processed/events.db
+
+output:
+  report_path: reports/dashboard_contract_report.json
+
+dashboard:
+  title: News Event Observatory
+  default_event_limit: 50
+  default_review_limit: 25
+  default_media_limit: 10
+  search_limit: 20
+  smoke_search_text: asesinado
+  min_confidence_attention: 0.55

@@ -1,0 +1,12 @@
+input:
+  database_path: data/processed/events.db
+
+output:
+  report_path: reports/serving_contract_report.json
+
+query_defaults:
+  default_limit: 10
+  max_limit: 100
+  review_limit: 25
+  search_limit: 10
+  smoke_search_text: asesinado

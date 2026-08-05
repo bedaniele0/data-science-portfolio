@@ -1,0 +1,14 @@
+input:
+  normalized_articles_path: data/interim/normalized_articles.csv
+  scored_articles_path: data/processed/scored_articles.csv
+  events_path: data/processed/events.csv
+  article_event_links_path: data/processed/article_event_links.csv
+  review_queue_path: data/processed/cluster_review.csv
+
+output:
+  database_path: data/processed/events.db
+  report_path: reports/master_build_report.json
+
+load:
+  if_exists: replace
+  pipeline_run_source: local_make_pipeline

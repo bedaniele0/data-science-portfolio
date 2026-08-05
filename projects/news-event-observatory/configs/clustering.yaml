@@ -1,0 +1,23 @@
+input:
+  relevant_articles_path: data/processed/relevant_articles.csv
+  labels_path: data/labels/event_pairs_labeled.csv
+
+output:
+  events_path: data/processed/events.csv
+  article_event_links_path: data/processed/article_event_links.csv
+  review_queue_path: data/processed/cluster_review.csv
+  report_path: reports/clustering_report.json
+
+clustering:
+  text_fields:
+    - title
+    - description
+  date_field: published_at
+  article_id_field: article_id
+  similarity_threshold: 0.15
+  review_confidence_threshold: 0.55
+  max_days_between_articles: 3
+  min_df: 1
+  ngram_range:
+    - 1
+    - 2

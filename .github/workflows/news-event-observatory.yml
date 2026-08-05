@@ -1,0 +1,48 @@
+name: News Event Observatory E2E
+
+on:
+  pull_request:
+    paths:
+      - "projects/news-event-observatory/**"
+      - ".github/workflows/news-event-observatory.yml"
+  push:
+    branches: [main]
+    paths:
+      - "projects/news-event-observatory/**"
+      - ".github/workflows/news-event-observatory.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/news-event-observatory
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: uv sync --frozen --extra validation --extra dashboard
+
+      - name: Lint
+        run: uv run ruff check src tests scripts
+
+      - name: Validate E2E project
+        run: make validate
+
+      - name: Validate Docker Compose file
+        run: docker compose config
+
+      - name: Build API image
+        run: docker build --target api -t news-event-observatory-api:ci .
+
+      - name: Build dashboard image
+        run: docker build --target dashboard -t news-event-observatory-dashboard:ci .
