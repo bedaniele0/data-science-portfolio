@@ -1,0 +1,85 @@
+event_terms:
+  - name: ejecucion_agresion_armas
+    patterns:
+      - '\bejecut\w*'
+      - '\bagred\w*'
+      - '\bdispar\w*'
+      - '\bbale\w*'
+      - '\blesion\w*'
+  - name: incendio_danos
+    patterns:
+      - '\bincendi\w*'
+      - '\bquem\w*'
+      - '\bdañ\w*'
+  - name: extorsion
+    patterns:
+      - '\bextorsi[oó]n\w*'
+      - '\bcobro\s+de\s+piso\b'
+  - name: secuestro_desaparicion
+    patterns:
+      - '\bsecuestr\w*'
+      - '\bprivaci[oó]n\s+de\s+la\s+libertad\b'
+      - '\blevant[oó]n\b'
+      - '\bdesaparec\w*'
+      - '\bdesaparic\w*'
+  - name: homicidio_asesinato
+    patterns:
+      - '\basesin\w*'
+      - '\bhomicid\w*'
+      - '\bmat\w*'
+      - '\bmuer\w*'
+      - '\bmuri\w*'
+      - '\bultim\w*'
+  - name: amenazas_crimen_organizado
+    patterns:
+      - '\btortur\w*'
+      - '\bamenaz\w*'
+      - '\batac\w*'
+      - '\bnarcomanta(s)?\b'
+      - '\bcrimen\s+organizado\b'
+      - '\bdelincuencia\s+organizada\b'
+      - '\bgrupo\s+armad\w*\b'
+      - '\bgrupo\s+criminal\b'
+
+actor_terms:
+  - name: negocio_empresa
+    patterns:
+      - '\bempresari\w*'
+      - '\bempresa(s)?\b'
+      - '\bnegocio(s)?\b'
+      - '\bcomerciant\w*'
+      - '\brestaurante(s)?\b'
+      - '\bhotel(es)?\b'
+  - name: propiedad_direccion
+    patterns:
+      - '\bdueñ\w*'
+      - '\bpropietari\w*'
+      - '\bdirector(a)?\b'
+      - '\bdirectiv\w*'
+      - '\bpresident(e|a)\b'
+      - '\bceo\b'
+      - '\bl[ií]der\s+empresarial\b'
+  - name: profesion_operacion
+    patterns:
+      - '\boperador(es)?\b'
+      - '\bejecutiv\w*'
+      - '\bconsultor(es)?\b'
+      - '\bingenier\w*'
+      - '\bconstructora\b'
+      - '\badministrador(a)?\b'
+      - '\bgerent\w*'
+      - '\bcontratist\w*'
+      - '\baccionist\w*'
+      - '\binmobiliari\w*'
+      - '\barquitect\w*'
+      - '\bfinancier\w*'
+      - '\bfundador(es)?\b'
+
+scoring:
+  relevant_requires:
+    - event_terms
+    - actor_terms
+  score_if_relevant: 1.0
+  score_if_event_only: 0.45
+  score_if_actor_only: 0.35
+  score_if_no_match: 0.0

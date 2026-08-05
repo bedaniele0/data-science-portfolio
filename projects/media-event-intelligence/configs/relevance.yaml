@@ -1,0 +1,16 @@
+input:
+  articles_path: data/interim/normalized_articles.csv
+  rules_path: configs/relevance_rules.yaml
+  labels_path: data/labels/relevance_labeled_sample.csv
+
+output:
+  scored_articles_path: data/processed/scored_articles.csv
+  relevant_articles_path: data/processed/relevant_articles.csv
+  report_path: reports/relevance_report.json
+  errors_path: reports/relevance_errors.csv
+
+quality:
+  text_fields:
+    - title
+    - description
+  require_labels_for_metrics: false

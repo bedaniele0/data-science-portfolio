@@ -1,0 +1,56 @@
+# macOS
+.DS_Store
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Generated data and reports
+artifacts/
+mlruns/
+mlflow.db*
+data/interim/
+data/processed/
+reports/*.json
+reports/*.csv
+reports/*.html
+*.pkl
+*.joblib
+*.onnx
+*.parquet
+
+# Keep documentation placeholders
+!data/README.md
+!reports/README.md
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Build and logs
+dist/
+build/
+*.log
+
+# Local overrides
+.vscode/settings.local.json
+
+# Agent private files
+.agents/cache/
+.agents/tmp/
+.agents/**/*.token
+.agents/**/*.secret
+# Streamlit agent skills (environment-specific symlinks)
+.agents/skills/developing-with-streamlit/

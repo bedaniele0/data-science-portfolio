@@ -32,3 +32,11 @@ models/
 
 # Streamlit
 .streamlit/secrets.toml
+# Allow reproducible demo seed for Media Event Intelligence
+!projects/media-event-intelligence/data/
+!projects/media-event-intelligence/data/README.md
+!projects/media-event-intelligence/data/raw/
+!projects/media-event-intelligence/data/raw/demo/
+!projects/media-event-intelligence/data/raw/demo/google_news_sample_2026-02-16_2026-02-17.csv
+!projects/media-event-intelligence/data/labels/
+!projects/media-event-intelligence/data/labels/*.csv

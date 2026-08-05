@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-label="Media Event Intelligence architecture">
+  <rect width="1200" height="420" fill="#f7f9fc"/>
+  <text x="60" y="58" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" fill="#172033">Media Event Intelligence Architecture</text>
+  <text x="60" y="92" font-family="Inter, Arial, sans-serif" font-size="15" fill="#526173">Reproducible data science pipeline with validated serving and dashboard contracts</text>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#516078"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1c2a3a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <g font-family="Inter, Arial, sans-serif" filter="url(#shadow)">
+    <g transform="translate(60 145)">
+      <rect width="145" height="92" rx="8" fill="#ffffff" stroke="#d5dce8"/>
+      <text x="18" y="34" font-size="17" font-weight="700" fill="#172033">Raw news</text>
+      <text x="18" y="58" font-size="13" fill="#66758a">CSV seed sample</text>
+    </g>
+    <g transform="translate(230 145)">
+      <rect width="145" height="92" rx="8" fill="#ffffff" stroke="#d5dce8"/>
+      <text x="18" y="34" font-size="17" font-weight="700" fill="#172033">Ingestion</text>
+      <text x="18" y="58" font-size="13" fill="#66758a">Normalize schema</text>
+    </g>
+    <g transform="translate(400 145)">
+      <rect width="145" height="92" rx="8" fill="#ffffff" stroke="#d5dce8"/>
+      <text x="18" y="34" font-size="17" font-weight="700" fill="#172033">Relevance</text>
+      <text x="18" y="58" font-size="13" fill="#66758a">Auditable rules</text>
+    </g>
+    <g transform="translate(570 145)">
+      <rect width="145" height="92" rx="8" fill="#ffffff" stroke="#d5dce8"/>
+      <text x="18" y="34" font-size="17" font-weight="700" fill="#172033">Clustering</text>
+      <text x="18" y="58" font-size="13" fill="#66758a">TF-IDF baseline</text>
+    </g>
+    <g transform="translate(740 145)">
+      <rect width="145" height="92" rx="8" fill="#ffffff" stroke="#d5dce8"/>
+      <text x="18" y="34" font-size="17" font-weight="700" fill="#172033">SQLite</text>
+      <text x="18" y="58" font-size="13" fill="#66758a">Relational contract</text>
+    </g>
+    <g transform="translate(910 145)">
+      <rect width="145" height="92" rx="8" fill="#ffffff" stroke="#d5dce8"/>
+      <text x="18" y="34" font-size="17" font-weight="700" fill="#172033">Serving</text>
+      <text x="18" y="58" font-size="13" fill="#66758a">FastAPI queries</text>
+    </g>
+    <g transform="translate(910 285)">
+      <rect width="145" height="72" rx="8" fill="#10243e" stroke="#10243e"/>
+      <text x="18" y="32" font-size="17" font-weight="700" fill="#ffffff">Dashboard</text>
+      <text x="18" y="54" font-size="13" fill="#c8d7ee">Streamlit review</text>
+    </g>
+  </g>
+  <g stroke="#516078" stroke-width="2.2" fill="none" marker-end="url(#arrow)">
+    <path d="M205 191 H224"/><path d="M375 191 H394"/><path d="M545 191 H564"/><path d="M715 191 H734"/><path d="M885 191 H904"/><path d="M982 238 V278"/>
+  </g>
+  <rect x="60" y="285" width="650" height="72" rx="8" fill="#e9f6f0" stroke="#bddfce"/>
+  <text x="82" y="316" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#173c2b">Validation gate</text>
+  <text x="82" y="340" font-family="Inter, Arial, sans-serif" font-size="13" fill="#315a48">make validate = pipelines + tests + artifact checks + executable notebooks</text>
+</svg>

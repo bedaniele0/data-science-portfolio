@@ -1,0 +1,48 @@
+name: Media Event Intelligence E2E
+
+on:
+  pull_request:
+    paths:
+      - "projects/media-event-intelligence/**"
+      - ".github/workflows/media-event-intelligence.yml"
+  push:
+    branches: [main]
+    paths:
+      - "projects/media-event-intelligence/**"
+      - ".github/workflows/media-event-intelligence.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/media-event-intelligence
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: uv sync --frozen --extra validation --extra dashboard
+
+      - name: Lint
+        run: uv run ruff check src tests scripts
+
+      - name: Validate E2E project
+        run: make validate
+
+      - name: Validate Docker Compose file
+        run: docker compose config
+
+      - name: Build API image
+        run: docker build --target api -t media-event-intelligence-api:ci .
+
+      - name: Build dashboard image
+        run: docker build --target dashboard -t media-event-intelligence-dashboard:ci .

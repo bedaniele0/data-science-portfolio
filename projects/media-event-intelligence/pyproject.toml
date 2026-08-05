@@ -1,0 +1,50 @@
+[project]
+name = "media-event-intelligence"
+version = "0.1.0"
+description = "Reproducible data science system for detecting and consolidating media events."
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+  "fastapi>=0.115.8",
+  "httpx>=0.28.1",
+  "joblib>=1.5.3",
+  "mlflow>=3.11.1",
+  "numpy>=2.2.0,<2.4.0",
+  "openpyxl>=3.1.5",
+  "pandas>=2.3.3",
+  "pydantic>=2.12.5",
+  "pytest>=8.4.2",
+  "pyyaml>=6.0.3",
+  "ruff>=0.14.0",
+  "scikit-learn>=1.8.0",
+  "sqlalchemy>=2.0.44",
+  "uvicorn>=0.44.0",
+]
+
+[project.optional-dependencies]
+notebooks = ["jupyterlab>=4.5.6"]
+validation = ["nbmake>=1.5.5", "jupyterlab>=4.5.6"]
+dashboard = ["streamlit>=1.52.0", "plotly>=5.24.1"]
+advanced-nlp = ["sentence-transformers>=5.1.2"]
+
+[build-system]
+requires = ["setuptools>=81"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.pytest.ini_options]
+filterwarnings = [
+  "ignore:Using `httpx` with `starlette.testclient` is deprecated:DeprecationWarning",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"src/serving/api.py" = ["B008"]

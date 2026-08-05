@@ -1,0 +1,17 @@
+.git
+.github
+.venv
+.pytest_cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+.ipynb_checkpoints
+.mypy_cache
+.ruff_cache
+.coverage
+htmlcov
+mlruns
+mlartifacts
+media_event_intelligence.egg-info

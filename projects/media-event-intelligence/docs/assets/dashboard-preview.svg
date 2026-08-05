@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Dashboard preview for Media Event Intelligence">
+  <rect width="1200" height="720" fill="#eef2f7"/>
+  <rect x="42" y="36" width="1116" height="648" rx="12" fill="#ffffff" stroke="#d8dee8"/>
+  <text x="78" y="92" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700" fill="#172033">Media Event Intelligence</text>
+  <text x="78" y="122" font-family="Inter, Arial, sans-serif" font-size="15" fill="#65748a">Executive review dashboard over validated SQLite event data</text>
+  <g font-family="Inter, Arial, sans-serif">
+    <g transform="translate(78 158)"><rect width="240" height="92" rx="8" fill="#f8fafc" stroke="#d8dee8"/><text x="20" y="34" font-size="14" fill="#65748a">Articulos</text><text x="20" y="68" font-size="31" font-weight="700" fill="#172033">668</text></g>
+    <g transform="translate(340 158)"><rect width="240" height="92" rx="8" fill="#f8fafc" stroke="#d8dee8"/><text x="20" y="34" font-size="14" fill="#65748a">Eventos</text><text x="20" y="68" font-size="31" font-weight="700" fill="#172033">8</text></g>
+    <g transform="translate(602 158)"><rect width="240" height="92" rx="8" fill="#f8fafc" stroke="#d8dee8"/><text x="20" y="34" font-size="14" fill="#65748a">En revision</text><text x="20" y="68" font-size="31" font-weight="700" fill="#172033">8</text></g>
+    <g transform="translate(864 158)"><rect width="240" height="92" rx="8" fill="#f8fafc" stroke="#d8dee8"/><text x="20" y="34" font-size="14" fill="#65748a">Notas procesadas</text><text x="20" y="68" font-size="31" font-weight="700" fill="#172033">668</text></g>
+  </g>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="78" y="292" width="498" height="210" rx="8" fill="#ffffff" stroke="#d8dee8"/>
+    <text x="104" y="326" font-size="17" font-weight="700" fill="#172033">Eventos por estado</text>
+    <rect x="120" y="384" width="95" height="78" fill="#2f6fed"/><rect x="245" y="350" width="95" height="112" fill="#19a974"/><rect x="370" y="410" width="95" height="52" fill="#f2a900"/>
+    <text x="124" y="482" font-size="12" fill="#65748a">auto</text><text x="238" y="482" font-size="12" fill="#65748a">needs_review</text><text x="374" y="482" font-size="12" fill="#65748a">search</text>
+    <rect x="606" y="292" width="498" height="210" rx="8" fill="#ffffff" stroke="#d8dee8"/>
+    <text x="632" y="326" font-size="17" font-weight="700" fill="#172033">Cobertura por medio</text>
+    <rect x="632" y="362" width="340" height="20" fill="#10243e"/><rect x="632" y="398" width="285" height="20" fill="#2f6fed"/><rect x="632" y="434" width="220" height="20" fill="#19a974"/>
+    <text x="982" y="378" font-size="12" fill="#65748a">INFO7</text><text x="927" y="414" font-size="12" fill="#65748a">El Sol</text><text x="862" y="450" font-size="12" fill="#65748a">N+</text>
+  </g>
+  <rect x="78" y="532" width="1026" height="98" rx="8" fill="#f8fafc" stroke="#d8dee8"/>
+  <text x="104" y="566" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#172033">Review queue and linked articles</text>
+  <line x1="104" y1="588" x2="1076" y2="588" stroke="#d8dee8"/>
+  <text x="104" y="612" font-family="Inter, Arial, sans-serif" font-size="13" fill="#65748a">evt_5738b6b17802</text>
+  <text x="280" y="612" font-family="Inter, Arial, sans-serif" font-size="13" fill="#172033">Sala de Despecho / arquitecto asesinado</text>
+  <text x="820" y="612" font-family="Inter, Arial, sans-serif" font-size="13" fill="#65748a">3 linked articles</text>
+</svg>
