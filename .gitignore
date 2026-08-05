@@ -40,3 +40,5 @@ models/
 !projects/media-event-intelligence/data/raw/demo/google_news_sample_2026-02-16_2026-02-17.csv
 !projects/media-event-intelligence/data/labels/
 !projects/media-event-intelligence/data/labels/*.csv
+!projects/media-event-intelligence/src/models/
+!projects/media-event-intelligence/src/models/*.py
