@@ -292,24 +292,6 @@ GitHub Actions incluye:
 
 En este portafolio el workflow activo vive en `.github/workflows/news-event-observatory.yml` en la raiz del repositorio. Si el proyecto se publica como repo independiente, puede usar `.github/workflows/ci.yml` con el mismo contrato de validacion.
 
-## Ecosistema E2E De Ciencia De Datos
-
-Este proyecto tambien funciona como referencia para crear proyectos futuros. La regla central es:
-
-```text
-Un proyecto no esta listo si una persona no puede instalarlo, ejecutarlo, probarlo y entenderlo desde el README.
-```
-
-Guias del ecosistema:
-
-- `docs/e2e-validation-ecosystem.md`
-- `docs/readme-execution-contract.md`
-- `docs/project-start-checklist.md`
-- `docs/architecture.md`
-- `docs/data-dictionary.md`
-- `docs/model-card.md`
-- `docs/dataset-card.md`
-
 ## Notas De Publicacion
 
 El repositorio esta preparado para publicarse como portafolio con una muestra pequena de datos semilla. Revisa `docs/privacy-review.md` antes de subirlo a GitHub.
